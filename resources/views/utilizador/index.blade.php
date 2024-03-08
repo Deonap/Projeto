@@ -39,7 +39,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="datatable-1" class="table table-striped dt-responsive nowrap table-vertical dataTable no-footer dtr-inline" width="100%" cellspacing="0" role="grid" aria-describedby="datatable-1_info" style="width: 100%;">
+                                    <table id="datatable-1" class="table table-striped dt-responsive nowrap table-vertical dataTable no-footer dtr-inline space-y-5" width="100%" cellspacing="0" role="grid" aria-describedby="datatable-1_info" style="width: 100%;">
                                         <thead>
                                             <tr role="row">
                                                 <th class="sorting_asc" tabindex="0" aria-controls="datatable-1" rowspan="1" colspan="1" style="width: 103px;" aria-sort="ascending" aria-label="Nome: activate to sort column descending">
@@ -61,22 +61,22 @@
                                         </thead>
                                         <tbody>
                                             @foreach($utilizadores as $i => $utilizador)
-                                                <tr role="row" class="{{$i % 2 == 0 ? "odd" : "even"}}">
-                                                    <td tabindex="0" class="sorting_1">{{$utilizador->nome}}</td>
-                                                    <td>{{$utilizador->email}}</td>
-                                                    <td>{{$utilizador->status}}</td>
-                                                    <td>{{$utilizador->funcoes}}</td>
+                                                <tr role="row" class="{{$i % 2 == 0 ? "odd" : "even"}} h-10">
+                                                    <td class="text-center" tabindex="0" class="sorting_1">
+                                                        {{$utilizador->nome}}
+                                                    </td>
+                                                    <td class="text-center">
+                                                        {{$utilizador->email}}
+                                                    </td>
+                                                    <td class="text-center">
+                                                        {{$utilizador->status}}
+                                                    </td>
+                                                    <td class="text-center">
+                                                        {{$utilizador->funcoes}}
+                                                    </td>
                                                     <td>
-                                                        <a href="test" class="btn btn-primary">
-                                                            <i class="mdi mdi-pencil-outline">
-                                                                Editar
-                                                            </i>
-                                                        </a>
-                                                        <a href="#" class="btn btn-danger text-white">
-                                                            <i class="mdi mdi-delete-outline">
-                                                                Apagar
-                                                            </i>
-                                                        </a>
+                                                        <a class="bg-gray-800 text-white" href="#">{{__('Editar')}}</a>
+                                                        <a class="bg-red-800 text-white" href="#">{{__('Apagar')}}</a>
                                                     </td>
                                                 </tr>
                                             @endforeach

@@ -12,7 +12,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        dd(Utilizador::all());
+        return view('utilizador.index')->with('utilizadores', Utilizador::all());
     }
 
     /**

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adicionar Cliente</title>
+    <title>Ver Cliente</title>
     @vite('resources/css/app.css')
 
 </head>

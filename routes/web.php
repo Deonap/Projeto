@@ -45,6 +45,7 @@ Route::controller(ClientController::class)->prefix('cliente')->name('cliente')->
     Route::get('/create', 'create')->name('.create');
     Route::post('/store', 'store')->name('.store');
     Route::get('/edit/{cliente}', 'edit')->name('.edit');
+    Route::get('/show/{cliente}', 'show')->name('.show');
     Route::put('/update/{cliente}', 'update')->name('.update');
     Route::delete('/destroy/{cliente}', 'destroy')->name('.destroy');
 });

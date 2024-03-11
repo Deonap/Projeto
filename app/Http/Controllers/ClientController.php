@@ -36,7 +36,7 @@ class ClientController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        //
+        return view('cliente.show')->with('cliente', $cliente);
     }
 
     /**

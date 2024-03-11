@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -21,7 +20,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create')->with('users', User::all());
+        return view('user.create');
     }
 
     /**
@@ -72,7 +71,7 @@ class UserController extends Controller
     {
         $validated = $request->validate([
             'nome' => 'required',
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
             'password' => 'nullable',
             'telemovel' => 'nullable',
             'funcoes' => 'required',

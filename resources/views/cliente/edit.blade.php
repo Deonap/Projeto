@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adicionar Cliente</title>
+    <title>Editar Cliente</title>
     @vite('resources/css/app.css')
 
 </head>
@@ -16,8 +16,9 @@
         <p class="mt-5 font-semibold">Editar Cliente</p>
         <p class="font-light">Parametrize os seguintes campos para editar o perfil deste Cliente.</p>
 
-        <form action="{{route('cliente.store')}}" method="POST">
+        <form action="{{route('cliente.update', $cliente->id)}}" method="POST">
             @csrf
+            @method('PUT')
 
             @if($errors->any())
             <ul>
@@ -67,7 +68,7 @@
             </div>
             <div class="mt-5 ml-20">
                 <button class="bg-sky-900 text-white p-2" type="submit">
-                    Adicionar
+                    Guardar
                 </button>
             </div>
         </form>

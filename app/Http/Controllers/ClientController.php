@@ -28,7 +28,27 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $validated = $request->validate([
+            'nome' => 'required',
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'telemovel' => 'nullable',
+            'telefone' => 'nullable',
+            'morada' => 'nullable',
+            'codigoPostal' => 'nullable',
+            'localidade' => 'nullable',
+        ]);
+
+        $cliente = new Cliente();
+        $cliente->nome = $request->input('nome');
+        $cliente->email = $request->input('email');
+        $cliente->telemovel = $request->input('telemovel');
+        $cliente->telefone = $request->input('telefone');
+        $cliente->morada = $request->input('morada');
+        $cliente->codigoPostal = $request->input('codigoPostal');
+        $cliente->localidade = $request->input('localidade');
+
+        $cliente->save();
+        return redirect(route('cliente.index'));
     }
 
     /**
@@ -52,7 +72,30 @@ class ClientController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
-        dd($request);
+        $validated = $request->validate([
+            'nome' => 'required',
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'telemovel' => 'nullable',
+            'telefone' => 'nullable',
+            'morada' => 'nullable',
+            'codigoPostal' => 'nullable',
+            'localidade' => 'nullable',
+        ]);
+
+        $cliente->nome = $request->input('nome');
+
+        if($request->input('email') != $cliente->email){
+            $cliente->email = $request->input('email');
+        }
+        
+        $cliente->telemovel = $request->input('telemovel');
+        $cliente->telefone = $request->input('telefone');
+        $cliente->morada = $request->input('morada');
+        $cliente->codigoPostal = $request->input('codigoPostal');
+        $cliente->localidade = $request->input('localidade');
+
+        $cliente->save();
+        return redirect(route('cliente.index'));
     }
 
     /**

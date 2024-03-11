@@ -75,7 +75,7 @@
                                     </svg>
                                 </a>
                                 <!-- botão remover -->
-                                <form method="POST" action="#">
+                                <form method="POST" action="{{route('cliente.destroy', $cliente->id)}}">
                                     @csrf
                                     @method('delete')
                                     <button type='submit' onclick="return confirm('Tem a certeza?')">

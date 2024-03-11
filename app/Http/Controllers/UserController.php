@@ -20,7 +20,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create')->with('users', User::all());
     }
 
     /**
@@ -28,7 +28,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        User::create($request->validated());
+        return redirect(route('user.index'));
     }
 
     /**
@@ -36,7 +37,6 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
     }
 
     /**
@@ -44,7 +44,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('user.edit')->with('user', $user);
     }
 
     /**
@@ -52,7 +52,8 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user->update($request->validated());
+        return redirect(route('user.index'));
     }
 
     /**
@@ -60,6 +61,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect(route('user.index'));
     }
 }

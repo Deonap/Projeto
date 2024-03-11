@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Utilizador;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -12,7 +12,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('utilizador.index')->with('utilizadores', Utilizador::all());
+        return view('user.index')->with('users', User::paginate(5));
     }
 
     /**
@@ -34,7 +34,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Utilizador $utilizador)
+    public function show(User $user)
     {
         //
     }
@@ -42,7 +42,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Utilizador $utilizador)
+    public function edit(User $user)
     {
         //
     }
@@ -50,7 +50,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Utilizador $utilizador)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -58,7 +58,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Utilizador $utilizador)
+    public function destroy(User $user)
     {
         //
     }

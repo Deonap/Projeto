@@ -60,19 +60,19 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($utilizadores as $i => $utilizador)
+                                            @foreach($users as $i => $user)
                                                 <tr role="row" class="{{$i % 2 == 0 ? "odd" : "even"}} h-10">
                                                     <td class="text-center" tabindex="0" class="sorting_1">
-                                                        {{$utilizador->nome}}
+                                                        {{$user->nome}}
                                                     </td>
                                                     <td class="text-center">
-                                                        {{$utilizador->email}}
+                                                        {{$user->email}}
                                                     </td>
                                                     <td class="text-center">
-                                                        {{$utilizador->status}}
+                                                        {{$user->status}}
                                                     </td>
                                                     <td class="text-center">
-                                                        {{$utilizador->funcoes}}
+                                                        {{$user->funcoes}}
                                                     </td>
                                                     <td>
                                                         <a class="bg-gray-800 text-white" href="#">{{__('Editar')}}</a>
@@ -87,34 +87,7 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="row">
-                                <div class="col-sm-12 col-md-5">
-                                    <div class="dataTables_info" id="datatable-1_info" role="status" aria-live="polite">
-                                        A Mostrar de 1 até 6 de 6 Registos
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-7">
-                                    <div class="dataTables_paginate paging_simple_numbers" id="datatable-1_paginate">
-                                        <ul class="pagination">
-                                            <li class="paginate_button page-item previous disabled" id="datatable-1_previous">
-                                                <a href="#" aria-controls="datatable-1" data-dt-idx="0" tabindex="0" class="page-link">
-                                                    Anterior
-                                                </a>
-                                            </li>
-                                            <li class="paginate_button page-item active">
-                                                <a href="#" aria-controls="datatable-1" data-dt-idx="1" tabindex="0" class="page-link">
-                                                    1
-                                                </a>
-                                            </li>
-                                            <li class="paginate_button page-item next disabled" id="datatable-1_next">
-                                                <a href="#" aria-controls="datatable-1" data-dt-idx="2" tabindex="0" class="page-link">
-                                                    Proxima
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                                PAGINATE
                         </div>
                     </div>
                 </div>

@@ -30,13 +30,13 @@ Route::middleware('auth')->group(function () {
 });
 
 # ->middleware('auth') before ->group()
-Route::controller(UserController::class)->prefix('utilizador')->name('utilizador')->group(function () {
+Route::controller(UserController::class)->prefix('user')->name('user')->group(function () {
     Route::get('/', 'index')->name('.index');
     Route::get('/create', 'create')->name('.create');
     Route::post('/store', 'store')->name('.store');
-    Route::get('/edit/{utilizador}', 'edit')->name('.edit');
-    Route::put('/update/{utilizador}', 'update')->name('.update');
-    Route::delete('/destroy/{utilizador}', 'destroy')->name('.destroy');
+    Route::get('/edit/{user}', 'edit')->name('.edit');
+    Route::put('/update/{user}', 'update')->name('.update');
+    Route::delete('/destroy/{user}', 'destroy')->name('.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

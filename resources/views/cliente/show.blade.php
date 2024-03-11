@@ -15,7 +15,6 @@
         </a>
         <p class="mt-5 font-semibold">Cliente</p>
         <div class="flex flex-wrap">
-            <input type="hidden" name="id" value="{{$cliente->id}}">
             <div class="w-full sm:w-1/2 mt-4">
                 <label class="font-bold">Nome</label>
                 <br>

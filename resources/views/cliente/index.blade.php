@@ -17,46 +17,39 @@
             </a>
         </div>
         <div class="col-sm-12 mt-4">
-            <table id="datatable-1"
-                class="table table-striped dt-responsive nowrap table-vertical dataTable no-footer dtr-inline space-y-5"
-                width="100%" cellspacing="0" role="grid" aria-describedby="datatable-1_info" style="width: 100%;">
+            <table class="table space-y-5 w-full">
                 <thead>
                     <tr role="row">
-                        <th class="sorting_asc" tabindex="0" aria-controls="datatable-1" rowspan="1" colspan="1"
-                            style="width: 103px;" aria-sort="ascending"
-                            aria-label="Nome: activate to sort column descending">
+                        <th class="w-[103px] text-left p-2">
                             Nome
                         </th>
-                        <th class="sorting" tabindex="0" aria-controls="datatable-1" rowspan="1" colspan="1"
-                            style="width: 144px;" aria-label="Email: activate to sort column ascending">
+                        <th class="w-[144px] text-left p-2">
                             Email
                         </th>
-                        <th class="sorting" tabindex="0" aria-controls="datatable-1" rowspan="1" colspan="1"
-                            style="width: 63px;" aria-label="Status: activate to sort column ascending">
+                        <th class="w-[63px] text-left p-2">
                             Telemóvel
                         </th>
-                        <th class="sorting" tabindex="0" aria-controls="datatable-1" rowspan="1" colspan="1"
-                            style="width: 135px;" aria-label="Tipo de Acesso: activate to sort column ascending">
+                        <th class="w-[135px] text-left p-2">
                             Morada
                         </th>
-                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 117px;" aria-label="">
+                        <th class="w-[117px] text-left p-2">
 
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($clientes as $i => $cliente)
-                    <tr role="row" class="{{$i % 2 == 0 ? " bg-gray-300" : "bg-white" }} h-10">
-                        <td class="text-center" tabindex="0" class="sorting_1">
+                    <tr role="row" class="{{$i % 2 == 0 ? " bg-gray-300" : "bg-white"}} h-10">
+                        <td class="text-left pl-2">
                             {{$cliente->nome}}
                         </td>
-                        <td class="text-center">
+                        <td class="text-left pl-2">
                             {{$cliente->email}}
                         </td>
-                        <td class="text-center">
+                        <td class="text-left pl-2">
                             {{$cliente->telemovel}}
                         </td>
-                        <td class="text-center">
+                        <td class="text-left pl-2">
                             {{$cliente->morada}}
                         </td>
                         <td>

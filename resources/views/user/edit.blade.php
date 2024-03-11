@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Editar Utilizador</title>
     @vite('resources/css/app.css')
 
 </head>
 
 <body>
-    <div class="card-body p-5">
+    <div class="p-5">
         <a href="{{route('user.index')}}" class="bg-sky-900 text-white p-2">
             <i class="mdi mdi-plus"></i>Voltar
         </a>

@@ -28,6 +28,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         User::create($request->validated());
         return redirect(route('user.index'));
     }
@@ -52,6 +53,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        dd($user);
         $user->update($request->validated());
         return redirect(route('user.index'));
     }

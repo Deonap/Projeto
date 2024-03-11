@@ -13,8 +13,8 @@
         <a href="{{route('cliente.index')}}" class="bg-sky-900 text-white p-2">
             < Voltar
         </a>
-        <p class="mt-5 font-semibold">Adicionar Cliente</p>
-        <p class="font-light">Parametrize os seguintes campos para adicionar um novo Cliente.</p>
+        <p class="mt-5 font-semibold">Editar Cliente</p>
+        <p class="font-light">Parametrize os seguintes campos para editar o perfil deste Cliente.</p>
 
         <form action="{{route('cliente.store')}}" method="POST">
             @csrf

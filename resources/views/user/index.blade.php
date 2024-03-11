@@ -21,15 +21,6 @@
                         <div id="datatable-1_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                             <div class="row">
                                 <div class="col-sm-12 col-md-6">
-                                    <div class="dataTables_length" id="datatable-1_length"><label>Mostrar <select name="datatable-1_length" aria-controls="datatable-1" class="custom-select custom-select-sm form-control form-control-sm">
-                                            <option value="10">10</option>
-                                            <option value="25">25</option>
-                                            <option value="50">50</option>
-                                            <option value="100">100</option>
-                                            </select> Registos</label>
-                                        </div>
-                                </div>
-                                <div class="col-sm-12 col-md-6">
                                     <div id="datatable-1_filter" class="dataTables_filter">
                                         <label>
                                             Procurar:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="datatable-1">
@@ -61,7 +52,7 @@
                                         </thead>
                                         <tbody>
                                             @foreach($users as $i => $user)
-                                                <tr role="row" class="{{$i % 2 == 0 ? "odd" : "even"}} h-10">
+                                                <tr role="row" class="{{$i % 2 == 0 ? "bg-gray-300" : "bg-white"}} h-10">
                                                     <td class="text-center" tabindex="0" class="sorting_1">
                                                         {{$user->nome}}
                                                     </td>
@@ -87,7 +78,7 @@
                                 </div>
                             </div>
                             <br>
-                                PAGINATE
+                            {{$users->links()}}
                         </div>
                     </div>
                 </div>

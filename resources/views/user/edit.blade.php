@@ -16,9 +16,18 @@
         <h4 class="mt-0 header-title">Editar Utilizador</h4>
         <p class="text-muted m-b-30 font-14">Parametrize os seguintes campos para editar o perfil deste Utilizador.</p>
 
-        <form method="POST" action="{{route('user.update', $user->id)}}" autocomplete="off">
+        <form action="{{route('user.update', $user->id)}}" method="POST" autocomplete="off">
             @csrf
             @method('PUT')
+
+            @if($errors->any())
+            <ul>
+                @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+            </ul>
+            @endif
+
             <div class="flex flex-wrap">
                 <input type="hidden" name="id" value="{{$user->id}}">
                 <div class="form-group col-md-6 w-1/2">
@@ -40,7 +49,7 @@
                 <div class="form-group col-md-6 w-1/2">
                     <label class="font-bold">Telemóvel</label>
                     <br>
-                    <input class="w-3/4" type="text" name="telemovel">
+                    <input class="w-3/4" type="text" name="telemovel" value="{{$user->telemovel}}">
                 </div>
                 <div class="form-group col-md-6 w-1/2">
                     <label class="font-bold">Funções</label>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -28,8 +29,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
-        User::create($request->validated());
+        $validated = $request->validate([
+            'nome' => 'required',
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'password' => 'required',
+            'telemovel' => 'nullable',
+            'funcoes' => 'nullable',
+            'status' => 'nullable',
+        ]);
+
+        $user = new User();
+        $user->nome = $request->input('nome');
+        $user->email = $request->input('email');
+        $user->password = bcrypt($request->input('password'));
+        $user->telemovel = $request->input('telemovel');
+        $user->funcoes = $request->input('funcoes');
+        $user->status = $request->input('status');
+
+        $user->save();
         return redirect(route('user.index'));
     }
 
@@ -53,8 +70,27 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        dd($user);
-        $user->update($request->validated());
+        $validated = $request->validate([
+            'nome' => 'required',
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
+            'password' => 'nullable',
+            'telemovel' => 'nullable',
+            'funcoes' => 'required',
+            'status' => 'required',
+        ]);
+
+        $user->nome = $request->input('nome');
+        $user->email = $request->input('email');
+
+        if($request->input('password') != null){
+            $user->password = bcrypt($request->input('password'));
+        }
+
+        $user->telemovel = $request->input('telemovel');
+        $user->funcoes = $request->input('funcoes');
+        $user->status = $request->input('status');
+
+        $user->save();
         return redirect(route('user.index'));
     }
 

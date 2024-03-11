@@ -19,6 +19,14 @@
         <form action="{{route('user.store')}}" method="POST">
             @csrf
 
+            @if($errors->any())
+            <ul>
+                @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+            </ul>
+            @endif
+
             <div class="flex flex-wrap">
                 <input type="hidden" name="id" value="">
                 <div class="form-group col-md-6 w-1/2">

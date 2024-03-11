@@ -13,7 +13,7 @@
         <a href="{{route('user.index')}}" class="bg-sky-900 text-white p-2">
             < Voltar
         </a>
-        <h4 class="font-semibold">Editar Utilizador</h4>
+        <h4 class="font-semibold mt-5">Editar Utilizador</h4>
         <p class="font-light">Parametrize os seguintes campos para editar o perfil deste Utilizador.</p>
 
         <form action="{{route('user.update', $user->id)}}" method="POST" autocomplete="off">

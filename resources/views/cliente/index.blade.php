@@ -40,19 +40,19 @@
                 <tbody>
                     @foreach($clientes as $i => $cliente)
                     <tr role="row" class="{{$i % 2 == 0 ? " bg-gray-300" : "bg-white"}} h-10 w-full">
-                        <td class="text-left pl-2">
+                        <td class="w-[20%] text-left pl-2">
                             {{$cliente->nome}}
                         </td>
-                        <td class="invisible sm:visible text-left pl-2">
+                        <td class="invisible sm:visible w-[15%] text-left pl-2">
                             {{$cliente->email}}
                         </td>
-                        <td class="invisible md:visible text-left pl-2">
+                        <td class="invisible md:visible w-[15%] text-left pl-2">
                             {{$cliente->telemovel}}
                         </td>
-                        <td class="invisible lg:visible text-left pl-2">
+                        <td class="invisible lg:visible w-[40%] text-left pl-2">
                             {{$cliente->morada}}
                         </td>
-                        <td class="invisible xl:visible">
+                        <td class="invisible xl:visible w-[10%]">
                             <div class="flex flex-nowrap space-x-2">
                                 <!-- botão "info" -->
                                 <a href="{{route('cliente.show', $cliente->id)}}">

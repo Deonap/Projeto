@@ -44,16 +44,16 @@
                         <td class="w-[20%] text-left pl-2">
                             {{$user->nome}}
                         </td>
-                        <td class="invisible sm:visible text-left pl-2">
+                        <td class="invisible sm:visible w-[15%] text-left pl-2">
                             {{$user->email}}
                         </td>
-                        <td class="invisible md:visible text-left pl-2">
+                        <td class="invisible md:visible w-[15%] text-left pl-2">
                             {{$user->status}}
                         </td>
-                        <td class="invisible lg:visible text-left pl-2">
+                        <td class="invisible lg:visible w-[40%] text-left pl-2">
                             {{$user->funcoes}}
                         </td>
-                        <td class="invisible xl:visible">
+                        <td class="invisible xl:visible w-[10%]">
                             <div class="flex flex-nowrap space-x-2">
                                 <!-- botão editar -->
                                 <a href="{{route('user.edit', $user->id)}}">

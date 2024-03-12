@@ -18,10 +18,10 @@
             </a>
         </div>
         <div class="mt-4">
-            <table class="table space-y-5 w-full">
+            <table class="table w-full">
                 <thead>
-                    <tr>
-                        <th class="w-[20%] text-left p-2" >
+                    <tr class="w-full">
+                        <th class="w-[100%] sm:w-[20%] text-left p-2" >
                             Nome
                         </th>
                         <th class="invisible sm:visible w-[15%] text-left p-2">

@@ -8,17 +8,17 @@
 
 </head>
 <body>
-    <div class="sm:flex sm:flex-wrap">
-        <div class="invisible sm:visible sm:w-[70%]">
-            <img src="/images/loginPageWM.png">
+    <div class="flex flex-wrap">
+        <div class="invisible md:visible md:w-[65%] h-screen bg-cover bg-center bg-no-repeat" style="background-image:url('/images/loginPageWM.png')">
+
         </div>
-        <div class="w-[90%] m-auto sm:w-[30%] p-10 mt-5">
+        <div class="w-[90%] m-auto md:w-[30%] p-10 mt-5">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="flex">
                     <h1 class="font-bold text-2xl m-auto pb-5">Login</h1>
                 </div>
-                <!-- Email Address -->
+                <!-- Email -->
                 <div>
                     <input id="email" class="mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="Email"/>
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />

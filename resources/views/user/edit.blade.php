@@ -51,7 +51,7 @@
                     <br>
                     <input class="w-full sm:w-11/12 mt-2" type="text" name="telemovel" value="{{$user->telemovel}}">
                 </div>
-                <div class="w-full sm:w-1/2" mt-4>
+                <div class="w-full sm:w-1/2 mt-4" mt-4>
                     <label class="font-bold">Funções</label>
                     <br>
                     <select class="w-full sm:w-11/12 mt-2" name="funcoes">
@@ -59,7 +59,7 @@
                         <option value="Técnico" @if($user->funcoes == 'Técnico') selected @endif >Técnico</option>
                     </select>
                 </div>
-                <div class="w-full sm:w-1/2" mt-4>
+                <div class="w-full sm:w-1/2 mt-4" mt-4>
                     <label class="font-bold">Status</label>
                     <br>
                     <select class="w-full sm:w-11/12 mt-2" name="status">                        

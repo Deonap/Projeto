@@ -5,14 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     @vite('resources/css/app.css')
-
 </head>
 <body>
     <div class="flex flex-wrap">
         <div class="invisible md:visible md:w-[65%] h-screen bg-cover bg-center bg-no-repeat" style="background-image:url('/images/loginPageWM.png')">
-
         </div>
-        <div class="w-[90%] m-auto md:w-[30%] p-10 mt-5">
+        <div class="w-[90%] m-auto md:w-[35%] p-10 mt-5">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="flex">

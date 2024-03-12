@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Utilizadores</title>
     @vite('resources/css/app.css')
-
 </head>
 
 <body>
@@ -18,9 +17,9 @@
             </a>
         </div>
         <div class="mt-4">
-            <table class="table w-full">
+            <table class="table table-fixed w-full">
                 <thead>
-                    <tr class="w-full">
+                    <tr>
                         <th class="w-[100%] sm:w-[20%] text-left p-2" >
                             Nome
                         </th>

@@ -18,13 +18,13 @@
                 </div>
                 <!-- Email -->
                 <div>
-                    <input id="email" class="mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="Email"/>
+                    <input id="email" class="mt-1 w-full" type="email" name="email" :value="old('email')" value="deonap4216@gmail.com" required autofocus autocomplete="username" placeholder="Email"/>
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
         
                 <!-- Password -->
                 <div class="mt-4">
-                    <input id="password" class="mt-1 w-full" type="password" name="password" required autocomplete="current-password" placeholder="Password"/>
+                    <input id="password" class="mt-1 w-full" type="password" name="password" value="12345678" required autocomplete="current-password" placeholder="Password"/>
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
         

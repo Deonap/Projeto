@@ -54,7 +54,7 @@
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Data Limite</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" type="text" name="dataLimite">
+                                <input class="w-full sm:w-11/12 mt-2" type="date" min={{date('Y-m-d')}} name="dataLimite">
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Supervisor</label>
@@ -76,7 +76,8 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="w-full mt-4">
+                            <!-- ocupa completamente meio ecrã + 11/12 da segunda metade. Isso é equivalente a 1/2 + (11/12)*1/2 = 23/24 = 95.8(3)% !-->
+                            <div class="w-full sm:w-[95.833333%] mt-4">
                                 <label class="font-bold">Observações Gerais</label>
                                 <br>
                                 <textarea class="w-full mt-2" type="text" name="obs"></textarea>

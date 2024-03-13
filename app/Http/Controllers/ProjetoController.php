@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Projeto;
 use App\Models\Cliente;
+use App\Models\UserTask;
 use App\Models\User;
 use Illuminate\Http\Request;
-use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class ProjetoController extends Controller
 {
@@ -37,7 +37,6 @@ class ProjetoController extends Controller
             'tipo'=> 'required',
             'dataLimite'=> 'required',
             'supervisor_id'=> 'required',
-            'responsavel_id'=> 'required',
             'obs'=> 'nullable',
         ]);
 
@@ -45,9 +44,21 @@ class ProjetoController extends Controller
         $project->nome = $request->input('nome');
         $project->tipo = $request->input('tipo');
         $project->dataLimite = $request->input('dataLimite');
+        $project->supervisor_id = $request->input('supervisor_id');
         $project->obs = $request->input('obs');
 
         $project->save();
+
+        $validated = $request->validate([
+            'responsavel_id' => 'required',
+        ]);
+
+        $userTask = new UserTask();
+        $userTask->utilizador_id = $request->input('responsavel_id');
+        $userTask->projeto_id = $project->id;
+
+        $userTask->save();
+
         return redirect(route('projeto.index'));
     }
 

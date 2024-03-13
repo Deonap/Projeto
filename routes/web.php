@@ -50,5 +50,14 @@ Route::controller(ClientController::class)->prefix('cliente')->name('cliente')->
     Route::delete('/destroy/{cliente}', 'destroy')->name('.destroy');
 });
 
+Route::controller(ProjetoController::class)->prefix('projeto')->name('projeto')->group(function () {
+    Route::get('/', 'index')->name('.index');
+    Route::get('/create', 'create')->name('.create');
+    Route::post('/store', 'store')->name('.store');
+    Route::get('/edit/{projeto}', 'edit')->name('.edit');
+    Route::get('/show/{projeto}', 'show')->name('.show');
+    Route::put('/update/{projeto}', 'update')->name('.update');
+    Route::delete('/destroy/{projeto}', 'destroy')->name('.destroy');
+});
 
 require __DIR__ . '/auth.php';

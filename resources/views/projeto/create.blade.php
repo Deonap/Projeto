@@ -6,9 +6,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <style type="text/css">
+        .dropdown{
+            border:1px solid #6B7280;
+            width: 100% !important;
+        }
+        @media screen and (min-width: 640px) {
+        .dropdown {
+            width: 91.666667% !important;
+        }
+}
         .dropdown-toggle{
-            height: 40px;
-            min-width: 100% !important;
+            height: 40px !important;
+            width: 100% !important;
         }
     </style>
 </head>

@@ -18,13 +18,13 @@
                                     <th class="w-[100%] sm:w-[20%] text-left p-2">
                                         Nome
                                     </th>
-                                    <th class="invisible sm:visible w-[15%] text-left p-2">
+                                    <th class="invisible sm:visible w-[25%] text-left p-2">
                                         Email
                                     </th>
                                     <th class="invisible md:visible w-[15%] text-left p-2">
                                         Status
                                     </th>
-                                    <th class="invisible lg:visible w-[40%] text-left p-2">
+                                    <th class="invisible lg:visible w-[30%] text-left p-2">
                                         Tipo de Acesso
                                     </th>
                                     <th class="invisible xl:visible w-[10%] text-left p-2">
@@ -38,13 +38,13 @@
                                     <td class="w-[20%] text-left pl-2">
                                         {{$user->nome}}
                                     </td>
-                                    <td class="invisible sm:visible w-[15%] text-left pl-2">
+                                    <td class="invisible sm:visible w-[25%] text-left pl-2">
                                         {{$user->email}}
                                     </td>
                                     <td class="invisible md:visible w-[15%] text-left pl-2">
                                         {{$user->status}}
                                     </td>
-                                    <td class="invisible lg:visible w-[40%] text-left pl-2">
+                                    <td class="invisible lg:visible w-[30%] text-left pl-2">
                                         {{$user->funcoes}}
                                     </td>
                                     <td class="invisible xl:visible w-[10%]">

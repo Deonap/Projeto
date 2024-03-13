@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     @vite('resources/css/app.css')
-    
 </head>
 <body>
     <div class="flex flex-wrap">

@@ -11,17 +11,17 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex ">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex hover:no-underline">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="hover:no-underline">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('user.index')" :active="request()->routeIs('user*')">
+                    <x-nav-link :href="route('user.index')" :active="request()->routeIs('user*')" class="hover:no-underline">
                         {{ __('Utilizadores') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('cliente.index')" :active="request()->routeIs('cliente*')">
+                    <x-nav-link :href="route('cliente.index')" :active="request()->routeIs('cliente*')" class="hover:no-underline">
                         {{ __('Clientes') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('projeto.index')" :active="request()->routeIs('projeto*')">
+                    <x-nav-link :href="route('projeto.index')" :active="request()->routeIs('projeto*')" class="hover:no-underline">
                         {{ __('Projetos') }}
                     </x-nav-link>
                 </div>

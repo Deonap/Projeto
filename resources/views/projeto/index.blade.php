@@ -7,10 +7,9 @@
                 <div class="p-5">
                     <div class="mt-8">
                         <a href="{{route('projeto.create')}}" class="bg-sky-900 text-white p-2">
-                            + Adicionar Projeto
+                            Adicionar Projeto
                         </a>
                     </div>
-                    
                     <div class="mt-5">
                         @foreach($projetos as $i => $projeto)
                         <div>

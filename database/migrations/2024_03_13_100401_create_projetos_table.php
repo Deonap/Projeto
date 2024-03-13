@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -14,11 +13,11 @@ return new class extends Migration
         Schema::create('projetos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->integer('cliente_id');
+            $table->integer('cliente_id')->nullable();
             $table->string('tipo');
-            $table->date('dataLimite');
-            $table->integer('supervisor_id');
-            $table->integer('responsavel_id');
+            $table->date('dataLimite')->nullable();
+            $table->integer('supervisor_id')->nullable();
+            $table->integer('responsavel_id')->nullable();
             $table->text('obs');
             $table->timestamps();
             $table->softDeletes();

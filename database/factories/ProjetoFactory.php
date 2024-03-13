@@ -18,7 +18,11 @@ class ProjetoFactory extends Factory
     {
         return [
             'nome' => fake()->name(),
-            'tipo' => fake()->randomElement(['Software', 'Redes Sociais','SEO','Loja Online', 'Integração', 'Website']),
+            'cliente_id' => fake()->numberBetween(1, 25),
+            'tipo' => fake()->randomElement(['Software', 'Redes Sociais', 'SEO', 'Loja Online', 'Integração', 'Website']),
+            'dataLimite' => fake()->date('Y-m-d'),
+            'supervisor_id' => fake()->numberBetween(1, 15),
+            'responsavel_id' => fake()->numberBetween(1, 15),
             'obs' => fake()->paragraph(5),
         ];
     }

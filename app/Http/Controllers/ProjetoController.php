@@ -33,15 +33,16 @@ class ProjetoController extends Controller
     {
         $validated = $request->validate([
             'nome' => 'required',
-            'cliente_id'=> 'required',
-            'tipo'=> 'required',
-            'dataLimite'=> 'required',
-            'supervisor_id'=> 'required',
-            'obs'=> 'nullable',
+            'cliente_id' => 'required',
+            'tipo' => 'required',
+            'dataLimite' => 'required',
+            'supervisor_id' => 'required',
+            'obs' => 'nullable',
         ]);
 
         $project = new Projeto();
         $project->nome = $request->input('nome');
+        $project->cliente_id = $request->input('cliente_id');
         $project->tipo = $request->input('tipo');
         $project->dataLimite = $request->input('dataLimite');
         $project->supervisor_id = $request->input('supervisor_id');
@@ -49,15 +50,17 @@ class ProjetoController extends Controller
 
         $project->save();
 
+
         $validated = $request->validate([
-            'responsavel_id' => 'required',
+            'responsaveis_id' => 'array',
         ]);
 
-        $userTask = new UserTask();
-        $userTask->utilizador_id = $request->input('responsavel_id');
-        $userTask->projeto_id = $project->id;
-
-        $userTask->save();
+        foreach ($request->input('responsaveis_id') as $value) {
+            $userTask = new UserTask();
+            $userTask->projeto_id = $project->id;
+            $userTask->utilizador_id = $value;
+            $userTask->save();
+        }
 
         return redirect(route('projeto.index'));
     }

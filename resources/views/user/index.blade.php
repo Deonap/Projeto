@@ -36,7 +36,7 @@
                                 @foreach($users as $i => $user)
                                 <tr role="row" class="{{$i % 2 == 0 ? " bg-gray-300" : "bg-white" }} h-10 w-full">
                                     <td class="w-[20%] text-left pl-2">
-                                        {{$user->nome}}
+                                        {{$user->nome}} id: {{$user->id}}
                                     </td>
                                     <td class="invisible sm:visible w-[25%] text-left pl-2">
                                         {{$user->email}}

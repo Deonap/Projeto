@@ -1,4 +1,17 @@
-<title>Adicionar Projeto</title>
+<head>
+    <title>Adicionar Projeto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <style type="text/css">
+        .dropdown-toggle{
+            height: 40px;
+            min-width: 100% !important;
+        }
+    </style>
+</head>
 <x-app-layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -69,15 +82,14 @@
                                 </select>
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
-                                <label class="font-bold">Responsável</label>
+                                <label class="font-bold">Responsáveis</label>
                                 <br>
-                                <select class="w-full sm:w-11/12 mt-2" name="responsavel_id">
-                                    <option disabled selected>Selecione um Responsável</option>
+                                <select title="Escolha os responsáveis" class="selectpicker w-full sm:w-11/12 mt-2" multiple data-live-search="true" name="responsaveis_id[]">
                                     @foreach($users as $user)
-                                        @if($user->funcoes == "Técnico")
-                                            <option value="{{$user->id}}">{{$user->nome}}</option>
-                                        @endif
-                                    @endforeach
+                                    @if($user->funcoes == "Técnico")
+                                        <option value="{{$user->id}}">{{$user->nome}}</option>
+                                    @endif
+                                @endforeach
                                 </select>
                             </div>
                             <!-- ocupa completamente meio ecrã + 11/12 da segunda metade. Isso é equivalente a 1/2 + (11/12)*1/2 = 23/24 = 95.8(3)% !-->
@@ -86,6 +98,7 @@
                                 <br>
                                 <textarea class="w-full mt-2" type="text" name="obs"></textarea>
                             </div>
+                                
                         </div>
                         <div class="mt-5 ml-20">
                             <button class="bg-sky-900 text-white p-2" type="submit">

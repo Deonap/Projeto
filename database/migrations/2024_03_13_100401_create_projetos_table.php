@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->date('dataLimite')->nullable();
             $table->integer('supervisor_id')->nullable();
             $table->integer('responsavel_id')->nullable();
-            $table->text('obs');
+            $table->text('obs')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

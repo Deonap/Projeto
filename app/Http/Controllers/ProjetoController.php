@@ -6,6 +6,7 @@ use App\Models\Projeto;
 use App\Models\Cliente;
 use App\Models\User;
 use Illuminate\Http\Request;
+use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class ProjetoController extends Controller
 {
@@ -30,7 +31,24 @@ class ProjetoController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $validated = $request->validate([
+            'nome' => 'required',
+            'cliente_id'=> 'required',
+            'tipo'=> 'required',
+            'dataLimite'=> 'required',
+            'supervisor_id'=> 'required',
+            'responsavel_id'=> 'required',
+            'obs'=> 'nullable',
+        ]);
+
+        $project = new Projeto();
+        $project->nome = $request->input('nome');
+        $project->tipo = $request->input('tipo');
+        $project->dataLimite = $request->input('dataLimite');
+        $project->obs = $request->input('obs');
+
+        $project->save();
+        return redirect(route('projeto.index'));
     }
 
     /**

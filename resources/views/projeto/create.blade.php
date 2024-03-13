@@ -62,7 +62,9 @@
                                 <select class="w-full sm:w-11/12 mt-2" name="supervisor_id">
                                     <option disabled selected>Selecione um Supervisor</option>
                                     @foreach($users as $user)
-                                        <option value="{{$user->id}}">{{$user->nome}}</option>
+                                    @if($user->funcoes == "Administrador")
+                                    <option value="{{$user->id}}">{{$user->nome}}</option>
+                                @endif
                                     @endforeach
                                 </select>
                             </div>
@@ -72,7 +74,9 @@
                                 <select class="w-full sm:w-11/12 mt-2" name="responsavel_id">
                                     <option disabled selected>Selecione um Responsável</option>
                                     @foreach($users as $user)
-                                        <option value="{{$user->id}}">{{$user->nome}}</option>
+                                        @if($user->funcoes == "Técnico")
+                                            <option value="{{$user->id}}">{{$user->nome}}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                             </div>

@@ -50,19 +50,19 @@
                                     <td class="invisible xl:visible w-[10%]">
                                         <div class="flex flex-nowrap space-x-2">
                                             <!-- botão "info" -->
-                                            <a href="{{route('cliente.show', $cliente->id)}}">
+                                            <a href="{{route('cliente.show', $cliente->id)}}" title="Mais informação">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="bg-sky-900 size-6 p-1 text-white">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
-                                                </svg>
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z" />
+                                                </svg>  
                                             </a>
                                             <!-- botão editar -->
-                                            <a href="{{route('cliente.edit', $cliente->id)}}">
+                                            <a href="{{route('cliente.edit', $cliente->id)}}" title="Editar">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="bg-sky-900 size-6 p-1 text-white">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
                                                 </svg>
                                             </a>
                                             <!-- botão remover -->
-                                            <form method="POST" action="{{route('cliente.destroy', $cliente->id)}}">
+                                            <form method="POST" action="{{route('cliente.destroy', $cliente->id)}}" title="Remover">
                                                 @csrf
                                                 @method('delete')
                                                 <button type='submit' onclick="return confirm('Tem a certeza?')">

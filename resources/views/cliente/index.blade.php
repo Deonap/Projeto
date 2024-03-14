@@ -1,5 +1,6 @@
 <head>
     <title>Clientes</title>
+    @vite(['resources/js/cliente/tableResizing.js'])
 </head>
 <x-app-layout>
     <div class="py-12">
@@ -17,19 +18,19 @@
                         <table class="table space-y-5 w-full">
                             <thead>
                                 <tr>
-                                    <th class="visible w-[20%]">
+                                    <th class="visible">
                                         Nome
                                     </th>
-                                    <th class="sm:visible w-[15%]">
+                                    <th class="sm:visible">
                                         Email
                                     </th>
-                                    <th class="md:visible w-[15%]">
+                                    <th class="md:visible">
                                         Telemóvel
                                     </th>
-                                    <th class="lg:visible w-[40%]">
+                                    <th class="lg:visible">
                                         Morada
                                     </th>
-                                    <th class="xl:visible w-[10%]">
+                                    <th class="xl:visible">
 
                                     </th>
                                 </tr>
@@ -37,19 +38,19 @@
                             <tbody>
                                 @foreach($clientes as $i => $cliente)
                                 <tr role="row" class="{{$i % 2 == 0 ? " bg-gray-300" : "bg-white"}} h-10 w-full">
-                                    <td class="visible">
+                                    <td class="visible col1">
                                         {{$cliente->nome}}
                                     </td>
-                                    <td class="sm:visible">
+                                    <td class="sm:visible col2">
                                         {{$cliente->email}}
                                     </td>
-                                    <td class="md:visible">
+                                    <td class="md:visible col3">
                                         {{$cliente->telemovel}}
                                     </td>
-                                    <td class="lg:visible">
+                                    <td class="lg:visible col4">
                                         {{$cliente->morada}}
                                     </td>
-                                    <td class="xl:visible">
+                                    <td class="xl:visible col5">
                                         <div class="flex items-center space-x-2">
                                             <!-- botão "info" -->
                                             <a href="{{route('cliente.show', $cliente->id)}}" title="Mais informação">

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProjetoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,8 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-# ->middleware('auth') before ->group()
-Route::controller(UserController::class)->prefix('user')->name('user')->group(function () {
+Route::controller(UserController::class)->prefix('user')->name('user')->middleware('auth')->group(function () {
     Route::get('/', 'index')->name('.index');
     Route::get('/create', 'create')->name('.create');
     Route::post('/store', 'store')->name('.store');
@@ -40,7 +40,7 @@ Route::controller(UserController::class)->prefix('user')->name('user')->group(fu
     Route::delete('/destroy/{user}', 'destroy')->name('.destroy');
 });
 
-Route::controller(ClientController::class)->prefix('cliente')->name('cliente')->group(function () {
+Route::controller(ClientController::class)->prefix('cliente')->name('cliente')->middleware('auth')->group(function () {
     Route::get('/', 'index')->name('.index');
     Route::get('/create', 'create')->name('.create');
     Route::post('/store', 'store')->name('.store');
@@ -50,12 +50,11 @@ Route::controller(ClientController::class)->prefix('cliente')->name('cliente')->
     Route::delete('/destroy/{cliente}', 'destroy')->name('.destroy');
 });
 
-Route::controller(ProjetoController::class)->prefix('projeto')->name('projeto')->group(function () {
+Route::controller(ProjetoController::class)->prefix('projeto')->name('projeto')->middleware('auth')->group(function () {
     Route::get('/', 'index')->name('.index');
     Route::get('/create', 'create')->name('.create');
     Route::post('/store', 'store')->name('.store');
     Route::get('/edit/{projeto}', 'edit')->name('.edit');
-    Route::get('/show/{projeto}', 'show')->name('.show');
     Route::put('/update/{projeto}', 'update')->name('.update');
     Route::delete('/destroy/{projeto}', 'destroy')->name('.destroy');
 });

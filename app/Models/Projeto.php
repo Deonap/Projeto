@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Projeto extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $fillable = [
         'nome',
         'cliente_id',
@@ -18,4 +19,17 @@ class Projeto extends Model
         'responsavel_id',
         'obs',
     ];
+
+    public function cliente(){
+        return $this->belongsTo(Cliente::class,'cliente_id');
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user_tasks', 'projeto_id', 'utilizador_id');
+    }
+
+    public function supervisor(){
+        return $this->belongsTo(User::class,'supervisor_id');
+    }
 }

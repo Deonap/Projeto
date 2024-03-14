@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Cliente extends Model
 {
     use HasFactory, SoftDeletes;
-
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -24,4 +24,9 @@ class Cliente extends Model
         'codigoPostal',
         'localidade',
     ];
+
+    public function projetos(){
+        return $this->hasMany(Projeto::class,'cliente_id');
+    }
+
 }

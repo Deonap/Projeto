@@ -38,6 +38,15 @@
                             <tbody>
                                 @foreach($users as $i => $user)
                                 <tr role="row" class="{{$i % 2 == 0 ? " bg-gray-300" : "bg-white" }} h-10 m-auto">
+                                    <!--
+                                            sm  md  lg  xl
+                                        100	45	33	22	20
+                                        0	55	42	28	25
+                                        0	0	25	17	15
+                                        0	0	0	33	30
+                                        0	0	0	0	10
+                                    -->
+
                                     <td class="visible col1">
                                         {{$user->nome}}
                                     </td>
@@ -50,7 +59,7 @@
                                     <td class="lg:visible col4">
                                         {{$user->funcoes}}
                                     </td>
-                                    <td class="xl:visible col5">
+                                    <td class="xl:visible col5 w-[0%] xl:w-[10%]">
                                         <div class="flex items-center space-x-2">
                                             <!-- botão editar -->
                                             <a href="{{route('user.edit', $user->id)}}" title="Editar">

@@ -18,19 +18,19 @@
                         <table class="table table-fixed min-w-full">
                             <thead>
                                 <tr class="w-full">
-                                    <th class="visible">
+                                    <th class="visible w-[20%]">
                                         Nome
                                     </th>
-                                    <th class="sm:visible">
+                                    <th class="sm:visible w-[25%]">
                                         Email
                                     </th>
-                                    <th class="md:visible">
+                                    <th class="md:visible w-[15%]">
                                         Status
                                     </th>
-                                    <th class="lg:visible">
+                                    <th class="lg:visible w-[30%]">
                                         Tipo de Acesso
                                     </th>
-                                    <th class="xl:visible">
+                                    <th class="xl:visible w-[10%]">
 
                                     </th>
                                 </tr>

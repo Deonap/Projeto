@@ -18,19 +18,19 @@
                         <table class="table space-y-5 w-full">
                             <thead>
                                 <tr>
-                                    <th class="visible">
+                                    <th class="visible w-[20%]">
                                         Nome
                                     </th>
-                                    <th class="sm:visible">
+                                    <th class="sm:visible w-[15%]">
                                         Email
                                     </th>
-                                    <th class="md:visible">
+                                    <th class="md:visible w-[15%]">
                                         Telemóvel
                                     </th>
-                                    <th class="lg:visible">
+                                    <th class="lg:visible w-[40%]">
                                         Morada
                                     </th>
-                                    <th class="xl:visible">
+                                    <th class="xl:visible w-[10%]">
 
                                     </th>
                                 </tr>

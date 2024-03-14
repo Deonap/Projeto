@@ -1,4 +1,6 @@
-<title>Utilizadores</title>
+<head>
+    <title>Utilizadores</title>
+</head>
 <x-app-layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -14,20 +16,20 @@
                     <div class="mt-4">
                         <table class="table min-w-full w-full">
                             <thead>
-                                <tr>
-                                    <th class="w-[100%] sm:w-[20%] text-left p-2">
+                                <tr class="w-full">
+                                    <th class="visible w-[20%]">
                                         Nome
                                     </th>
-                                    <th class="invisible sm:visible w-[25%] text-left p-2">
+                                    <th class="sm:visible w-[25%]">
                                         Email
                                     </th>
-                                    <th class="invisible md:visible w-[15%] text-left p-2">
+                                    <th class="md:visible w-[15%]">
                                         Status
                                     </th>
-                                    <th class="invisible lg:visible w-[30%] text-left p-2">
+                                    <th class="lg:visible w-[30%]">
                                         Tipo de Acesso
                                     </th>
-                                    <th class="invisible xl:visible w-[10%] text-left p-2">
+                                    <th class="xl:visible w-[10%]">
 
                                     </th>
                                 </tr>
@@ -35,19 +37,19 @@
                             <tbody>
                                 @foreach($users as $i => $user)
                                 <tr role="row" class="{{$i % 2 == 0 ? " bg-gray-300" : "bg-white" }} h-10 w-full">
-                                    <td class="w-[20%] text-left pl-2">
-                                        {{$user->nome}} id: {{$user->id}}
+                                    <td class="visible">
+                                        {{$user->nome}}
                                     </td>
-                                    <td class="invisible sm:visible w-[25%] text-left pl-2">
+                                    <td class="sm:visible">
                                         {{$user->email}}
                                     </td>
-                                    <td class="invisible md:visible w-[15%] text-left pl-2">
+                                    <td class="md:visible">
                                         {{$user->status}}
                                     </td>
-                                    <td class="invisible lg:visible w-[30%] text-left pl-2">
+                                    <td class="lg:visible">
                                         {{$user->funcoes}}
                                     </td>
-                                    <td class="invisible xl:visible w-[10%]">
+                                    <td class="xl:visible">
                                         <div class="flex items-center space-x-2">
                                             <!-- botão editar -->
                                             <a href="{{route('user.edit', $user->id)}}" title="Editar">

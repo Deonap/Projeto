@@ -17,7 +17,7 @@ class ClienteFactory extends Factory
     public function definition(): array
     {
         return [
-            'nome' => fake()->name(),
+            'nome' => fake()->company(),
             'email' => fake()->unique()->safeEmail(),
             'telefone' => fake()->phoneNumber(),
             'telemovel' => fake()->phoneNumber(),

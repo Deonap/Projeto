@@ -19,6 +19,11 @@
             height: 40px !important;
             width: 100% !important;
         }
+        .dropdown-item.selected::after {
+            content: '\2713';
+            font-size: 14px;
+            color: green;
+        }
     </style>
 </head>
 <x-app-layout>

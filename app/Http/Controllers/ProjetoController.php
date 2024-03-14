@@ -78,7 +78,8 @@ class ProjetoController extends Controller
      */
     public function edit(Projeto $projeto)
     {
-        //
+        dd($projeto);
+        return view('projeto.edit')->with('projeto', $projeto);
     }
 
     /**
@@ -94,6 +95,8 @@ class ProjetoController extends Controller
      */
     public function destroy(Projeto $projeto)
     {
-        //
+        dd($projeto);
+        $projeto->delete();
+        return redirect(route('projeto.index'));
     }
 }

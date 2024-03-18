@@ -15,7 +15,7 @@ class ProjetoController extends Controller
      */
     public function index()
     {
-        return view("projeto.index")->with("projetos", Projeto::paginate(10));
+        return view("projeto.index")->with(["projetos" => Projeto::all(),"users" => User::all()]);
     }
 
     /**

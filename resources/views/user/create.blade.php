@@ -2,14 +2,13 @@
 <x-app-layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-5">
-                    <a href="{{route('user.index')}}" class="bg-sky-900 text-white p-2">
-                        < Voltar
-                    </a>
-                    <h4 class="mt-5 font-semibold">Adicionar Utilizador</h4>
-                    <p class="font-light">Parametrize os seguintes campos para adicionar um novo Utilizador.</p>
-
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-5">
+                <a href="{{route('user.index')}}" class="bg-sky-900 text-white p-2">
+                    < Voltar
+                </a>
+                <h4 class="mt-5 font-semibold">Adicionar Utilizador</h4>
+                <p class="font-light">Parametrize os seguintes campos para adicionar um novo Utilizador.</p>
+                <div>
                     <form action="{{route('user.store')}}" method="POST">
                         @csrf
                         

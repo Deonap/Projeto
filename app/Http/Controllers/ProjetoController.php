@@ -144,7 +144,6 @@ class ProjetoController extends Controller
      */
     public function destroy(Projeto $projeto)
     {
-        dd($projeto);
         $projeto->delete();
         return redirect(route('projeto.index'));
     }

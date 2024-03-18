@@ -14,8 +14,11 @@
                             + Adicionar Utilizador
                         </a>
                     </div>
+                    <div>
+                        <input class="mt-8" type="text" placeholder="Pesquisar" id="userFilter" autocomplete="off">
+                    </div>
                     <div class="mt-4">
-                        <table class="table table-fixed min-w-full">
+                        <table class="table table-fixed min-w-full" id="userTable">
                             <thead>
                                 <tr class="w-full">
                                     <th class="visible w-[20%]">
@@ -91,3 +94,25 @@
         </div>
     </div>
 </x-app-layout>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const filterInput = document.getElementById("userFilter");
+        const tableRows = document.querySelectorAll("#userTable tbody tr");
+
+        filterInput.addEventListener("input", function() {
+            const filterValue = this.value.toLowerCase().trim();
+
+            tableRows.forEach(function(row) {
+                const name = row.querySelector("td:first-child").textContent.toLowerCase();
+                if (name.includes(filterValue)) {
+                    row.style.display = "";
+                    row.classList.remove("hidden");
+                } else {
+                    row.style.display = "none";
+                    row.classList.add("hidden");
+                }
+            });
+        });
+    });
+</script>

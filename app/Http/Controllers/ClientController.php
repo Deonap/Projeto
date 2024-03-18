@@ -12,7 +12,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view('cliente.index')->with('clientes', Cliente::paginate(10));
+        return view('cliente.index')->with('clientes', Cliente::paginate(5));
     }
 
     /**
@@ -84,10 +84,10 @@ class ClientController extends Controller
 
         $cliente->nome = $request->input('nome');
 
-        if($request->input('email') != $cliente->email){
+        if ($request->input('email') != $cliente->email) {
             $cliente->email = $request->input('email');
         }
-        
+
         $cliente->telemovel = $request->input('telemovel');
         $cliente->telefone = $request->input('telefone');
         $cliente->morada = $request->input('morada');

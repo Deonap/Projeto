@@ -14,8 +14,11 @@
                             + Adicionar Cliente
                         </a>
                     </div>
+                    <div>
+                        <input class="mt-8" type="text" placeholder="Pesquisar" id="clientFilter" autocomplete="off">
+                    </div>
                     <div class="mt-4">
-                        <table class="table space-y-5 w-full">
+                        <table class="table space-y-5 w-full" id="clientTable">
                             <thead>
                                 <tr>
                                     <th class="visible w-[20%]">
@@ -37,7 +40,7 @@
                             </thead>
                             <tbody>
                                 @foreach($clientes as $i => $cliente)
-                                <tr role="row" class="{{$i % 2 == 0 ? " bg-gray-300" : "bg-white"}} h-10 w-full">
+                                <tr role="row" class="even:bg-white odd:bg-gray-300 h-10 w-full">
                                     <td class="visible col1">
                                         {{$cliente->nome}}
                                     </td>
@@ -88,3 +91,25 @@
         </div>
     </div>
 </x-app-layout>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const filterInput = document.getElementById("clientFilter");
+        const tableRows = document.querySelectorAll("#clientTable tbody tr");
+
+        filterInput.addEventListener("input", function() {
+            const filterValue = this.value.toLowerCase().trim();
+
+            tableRows.forEach(function(row) {
+                const name = row.querySelector("td:first-child").textContent.toLowerCase();
+                if (name.includes(filterValue)) {
+                    row.style.display = "";
+                    row.classList.remove("hidden");
+                } else {
+                    row.style.display = "none";
+                    row.classList.add("hidden");
+                }
+            });
+        });
+    });
+</script>

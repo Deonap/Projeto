@@ -23,6 +23,7 @@ class ProjetoFactory extends Factory
             'dataLimite' => fake()->date('Y-m-d'),
             'supervisor_id' => fake()->numberBetween(1, 15),
             'obs' => fake()->paragraph(5),
+            'status' => 'Por fazer',
         ];
     }
 }

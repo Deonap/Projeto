@@ -47,6 +47,7 @@ class ProjetoController extends Controller
         $project->dataLimite = $request->input('dataLimite');
         $project->supervisor_id = $request->input('supervisor_id');
         $project->obs = $request->input('obs');
+        $project->status = 'Por fazer';
 
         $project->save();
 

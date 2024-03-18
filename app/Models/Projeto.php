@@ -20,6 +20,7 @@ class Projeto extends Model
         'supervisor_id',
         'responsavel_id',
         'obs',
+        'status',
     ];
 
     public function cliente(): BelongsTo

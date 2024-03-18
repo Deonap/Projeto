@@ -40,16 +40,16 @@ class ProjetoController extends Controller
             'obs' => 'nullable',
         ]);
 
-        $project = new Projeto();
-        $project->nome = $request->input('nome');
-        $project->cliente_id = $request->input('cliente_id');
-        $project->tipo = $request->input('tipo');
-        $project->dataLimite = $request->input('dataLimite');
-        $project->supervisor_id = $request->input('supervisor_id');
-        $project->obs = $request->input('obs');
-        $project->status = 'Por fazer';
+        $projeto = new Projeto();
+        $projeto->nome = $request->input('nome');
+        $projeto->cliente_id = $request->input('cliente_id');
+        $projeto->tipo = $request->input('tipo');
+        $projeto->dataLimite = $request->input('dataLimite');
+        $projeto->supervisor_id = $request->input('supervisor_id');
+        $projeto->obs = $request->input('obs');
+        $projeto->status = 'Por fazer';
 
-        $project->save();
+        $projeto->save();
 
 
         $validated = $request->validate([
@@ -58,7 +58,7 @@ class ProjetoController extends Controller
 
         foreach ($request->input('responsaveis_id') as $value) {
             $userTask = new UserTask();
-            $userTask->projeto_id = $project->id;
+            $userTask->projeto_id = $projeto->id;
             $userTask->utilizador_id = $value;
             $userTask->save();
         }
@@ -79,8 +79,7 @@ class ProjetoController extends Controller
      */
     public function edit(Projeto $projeto)
     {
-        dd($projeto);
-        return view('projeto.edit')->with('projeto', $projeto);
+        return view('projeto.edit')->with(['projeto' => $projeto, 'clientes' => Cliente::all(), 'users' => User::where('status', 'Ativo')->get()]);
     }
 
     /**
@@ -88,7 +87,56 @@ class ProjetoController extends Controller
      */
     public function update(Request $request, Projeto $projeto)
     {
-        //
+        $validated = $request->validate([
+            'nome' => 'required',
+            'cliente_id' => 'required',
+            'tipo' => 'required',
+            'dataLimite' => 'required',
+            'supervisor_id' => 'required',
+            'responsaveis_id' => 'array',
+            'obs' => 'nullable',
+        ]);
+
+        $projeto->nome = $request->input('nome');
+        $projeto->cliente_id = $request->input('cliente_id');
+        $projeto->tipo = $request->input('tipo');
+        $projeto->dataLimite = $request->input('dataLimite');
+        $projeto->supervisor_id = $request->input('supervisor_id');
+        $projeto->obs = $request->input('obs');
+
+        $projeto->save();
+
+        $responsaveis = User::whereIn('id', function ($query) use ($projeto) {
+            $query->select('utilizador_id')
+                ->from('user_tasks')
+                ->where('projeto_id', $projeto->id);
+        })->get();
+
+        foreach ($responsaveis as $r) {
+            if (in_array($r, $request->input('responsaveis_id')) && count($responsaveis) === count($request->input('responsaveis_id'))) {
+                continue;
+            } else {
+                foreach (UserTask::where('projeto_id', $projeto->id)->get() as $temp) {
+                    $temp->delete();
+                }
+                foreach ($request->input('responsaveis_id') as $value) {
+                    $userTask = new UserTask();
+                    $userTask->projeto_id = $projeto->id;
+                    $userTask->utilizador_id = $value;
+                    $userTask->save();
+                }
+                break;
+            }
+        }
+        $projeto->save();
+        return redirect(route('projeto.index'));
+    }
+
+    public function updateStatus(Projeto $projeto, string $status)
+    {
+        $projeto->status = $status;
+        $projeto->save();
+        return redirect(route('projeto.index'));
     }
 
     /**

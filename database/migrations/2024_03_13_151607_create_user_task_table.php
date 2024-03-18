@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('projeto_id');
             $table->integer('utilizador_id');
             $table->timestamps();
-            $table->softDeletes();
+            $table->primary(['projeto_id','utilizador_id']);
         });
     }
 

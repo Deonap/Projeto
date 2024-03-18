@@ -13,6 +13,7 @@
                         @foreach($projetos as $i => $projeto)
                         <div>
                             {{$projeto->nome}}
+                            <a href="{{route('projeto.edit', $projeto->id)}}" class="bg-sky-600">EDITAR</a>
                         </div>
                         @endforeach
                     </div>

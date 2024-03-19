@@ -39,7 +39,7 @@
                         </thead>
                         <tbody>
                             @foreach($clientes as $i => $cliente)
-                            <tr role="row" class="even:bg-white odd:bg-gray-300 h-10 w-full">
+                            <tr role="row" class="h-10 w-full">
                                 <td class="visible col1">
                                     {{$cliente->nome}}
                                 </td>
@@ -93,6 +93,16 @@
 </x-app-layout>
 
 <script>
+    var i = 0;
+    document.querySelectorAll("#clientTable tbody tr").forEach(function(row){
+        if(i % 2 === 0){
+            row.classList.add('bg-gray-300');
+        }else{
+            row.classList.add('bg-white');
+        }
+        i++;
+    });
+
     document.addEventListener("DOMContentLoaded", function() {
         const filterInput = document.getElementById("clientFilter");
         const tableRows = document.querySelectorAll("#clientTable tbody tr");
@@ -103,11 +113,12 @@
             tableRows.forEach(function(row) {
                 const name = row.querySelector("td:first-child").textContent.toLowerCase();
                 if (name.includes(filterValue)) {
-                    // talvez algo assim funcione? Não está terminado
-                    if (i % 2 == 0){
-                        row.classList.add('bg-white');
-                    }else{
+                    if (i % 2 === 0){
+                        row.classList.remove('bg-white');
                         row.classList.add('bg-gray-300');
+                    }else{
+                        row.classList.remove('bg-gray-300');
+                        row.classList.add('bg-white');
                     }
                     i++;
                     row.style.display = "";

@@ -39,7 +39,7 @@
                         </thead>
                         <tbody>
                             @foreach($users as $i => $user)
-                            <tr role="row" class="{{$i % 2 == 0 ? " bg-gray-300" : "bg-white" }} h-10 m-auto">
+                            <tr role="row" class="h-10 m-auto">
                                 <!--
                                         sm  md  lg  xl
                                     100	45	33	22	20
@@ -96,16 +96,34 @@
 </x-app-layout>
 
 <script>
+    var i = 0;
+    document.querySelectorAll("#userTable tbody tr").forEach(function(row){
+        if(i % 2 === 0){
+            row.classList.add('bg-gray-300');
+        }else{
+            row.classList.add('bg-white');
+        }
+        i++;
+    });
+
     document.addEventListener("DOMContentLoaded", function() {
         const filterInput = document.getElementById("userFilter");
         const tableRows = document.querySelectorAll("#userTable tbody tr");
 
         filterInput.addEventListener("input", function() {
             const filterValue = this.value.toLowerCase().trim();
-
+            var i = 0;
             tableRows.forEach(function(row) {
                 const name = row.querySelector("td:first-child").textContent.toLowerCase();
                 if (name.includes(filterValue)) {
+                    if (i % 2 === 0){
+                        row.classList.remove('bg-white');
+                        row.classList.add('bg-gray-300');
+                    }else{
+                        row.classList.remove('bg-gray-300');
+                        row.classList.add('bg-white');
+                    }
+                    i++;
                     row.style.display = "";
                     row.classList.remove("hidden");
                 } else {

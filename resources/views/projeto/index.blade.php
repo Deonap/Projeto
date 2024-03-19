@@ -28,10 +28,9 @@
 </x-app-layout>
 <script>
     const projectPageContent = document.getElementById('projectPageContent');
-    projectPageContent.innerHTML = '<h1>ISTO É UM TESTE</h1>'
 
     document.getElementById('projectFilter').addEventListener('input', function(){
-        projectPageContent.innerHTML += '<h1>ISTO É UM TESTE</h1>'
+        projectPageContent.innerHTML += '<h1>ISTO É UM TESTE {{$users[2]->nome}} </h1>'
     });
 
 </script>

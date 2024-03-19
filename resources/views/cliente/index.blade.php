@@ -99,10 +99,17 @@
 
         filterInput.addEventListener("input", function() {
             const filterValue = this.value.toLowerCase().trim();
-
+            var i = 0;
             tableRows.forEach(function(row) {
                 const name = row.querySelector("td:first-child").textContent.toLowerCase();
                 if (name.includes(filterValue)) {
+                    // talvez algo assim funcione? Não está terminado
+                    if (i % 2 == 0){
+                        row.classList.add('bg-white');
+                    }else{
+                        row.classList.add('bg-gray-300');
+                    }
+                    i++;
                     row.style.display = "";
                     row.classList.remove("hidden");
                 } else {

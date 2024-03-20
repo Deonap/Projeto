@@ -13,7 +13,7 @@
                         <label class="font-bold">Supervisor</label>
                         <br>
                         <select class="w-full sm:w-1/2 mt-2" name="users" id="projectFilter">
-                            <option value="0" class="text-center">-- Mostrar todos --</option>
+                            <option value="0" class="text-center">Mostrar todos</option>
                             @foreach ($users as $user)
                                 @if($user->funcoes == 'Administrador')
                                     <option value="{{$user->id}}">{{$user->nome}}</option>   
@@ -76,7 +76,11 @@
                                             }
                                         ?>
                                         <td class="visible {{$txtcolor}} w-[10%]">
-                                            {{$projeto->dataLimite}}
+                                            <?php
+                                                $data = DateTime::createFromFormat('Y-m-d',$projeto->dataLimite);
+                                                $dataFormatada = $data->format('d-m-Y');
+                                            ?>
+                                            {{$dataFormatada}}
                                         </td>
                                         <td class="visible w-[10%]">
                                             <div class="flex items-center space-x-2">
@@ -149,7 +153,7 @@
                                             {{$projeto->obs}}
                                         </td>
                                         <td class="visible w-[10%]">
-                                            AAAA
+                                            {{date_format($projeto->updated_at, 'd-m-Y')}}
                                         </td>
                                         <td class="visible w-[10%]">
                                             <div class="flex items-center space-x-2">

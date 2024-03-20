@@ -229,8 +229,6 @@
                     row.classList.add("hidden");
                 }
             });
-        });
-
-        
+        });        
     });
 </script>

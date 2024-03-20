@@ -212,7 +212,7 @@
                 var cells = row.getElementsByTagName("td");
                 var supervisorId = cells[6].textContent.toLowerCase().trim();
 
-                if (supervisorId == filterValue || flag) {
+                if (supervisorId == filterValue) {
                     if (i % 2 === 0){
                         row.classList.remove('bg-white');
                         row.classList.add('bg-gray-300');
@@ -246,7 +246,6 @@
                         row.classList.remove('bg-gray-300');
                         row.classList.add('bg-white');
                     }
-
                     i++;
                     row.style.display = "";
                     row.classList.remove("hidden");
@@ -257,6 +256,4 @@
             });
         });
     });
-
-
 </script>

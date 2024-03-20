@@ -140,7 +140,7 @@
                             @foreach($projetos as $projeto)
                                 @if($projeto->status == 'Terminado')
                                     <tr role="row" class="h-10 m-auto">
-                                        <td class='visible w-[20%]'>
+                                        <td class="visible w-[20%]">
                                             {{$projeto->nome}}
                                         </td>
                                         <td class="visible w-[15%]">

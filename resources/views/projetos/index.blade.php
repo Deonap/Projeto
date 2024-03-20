@@ -13,7 +13,7 @@
                         <label class="font-bold">Supervisor</label>
                         <br>
                         <select class="w-full sm:w-1/2 mt-2" name="users" id="projectFilter">
-                            <option value="0" class="text-center">Mostrar todos</option>
+                            <option disabled selected>Selecione um administrador</option>
                             @foreach ($users as $user)
                                 @if($user->funcoes == 'Administrador')
                                     <option value="{{$user->id}}">{{$user->nome}}</option>   
@@ -189,23 +189,14 @@
     </div>
 </x-app-layout>
 <script>
-    var i = 0;
     document.querySelectorAll("#activeTable tbody tr").forEach(function(row){
-        if(i % 2 === 0){
-            row.classList.add('bg-gray-300');
-        }else{
-            row.classList.add('bg-white');
-        }
-        i++;
+        row.style.display = "none";
+        row.classList.add("hidden");
     });
     var i = 0;
     document.querySelectorAll("#finishedTable tbody tr").forEach(function(row){
-        if(i % 2 === 0){
-            row.classList.add('bg-gray-300');
-        }else{
-            row.classList.add('bg-white');
-        }
-        i++;
+        row.style.display = "none";
+        row.classList.add("hidden");
     });
 
 
@@ -216,7 +207,6 @@
 
         projectFilter.addEventListener("change", function() {
             const filterValue = this.value.toLowerCase().trim();
-            var flag = filterValue == 0; 
             var i = 0;
             activeTable.forEach(function(row) {
                 var cells = row.getElementsByTagName("td");
@@ -243,13 +233,12 @@
 
         projectFilter.addEventListener("change", function() {
             const filterValue = this.value.toLowerCase().trim();
-            var flag = filterValue == 0; 
             var i = 0;
             finishedTable.forEach(function(row) {
                 var cells = row.getElementsByTagName("td");
                 var supervisorId = cells[6].textContent.toLowerCase().trim();
 
-                if (supervisorId == filterValue || flag) {
+                if (supervisorId == filterValue) {
                     if (i % 2 === 0){
                         row.classList.remove('bg-white');
                         row.classList.add('bg-gray-300');

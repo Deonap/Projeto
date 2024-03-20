@@ -163,26 +163,14 @@
     </div>
 </x-app-layout>
 <script>
-
-    var i = 0;
     document.querySelectorAll("#activeProjects tbody tr").forEach(function(row){
-        if(i % 2 === 0){
-            row.classList.add('bg-gray-300');
-        }else{
-            row.classList.add('bg-white');
-        }
-        i++;
+        row.style.display = "none";
+        row.classList.add("hidden");
     });
-    var i = 0;
     document.querySelectorAll("#pendingProjects tbody tr").forEach(function(row){
-        if(i % 2 === 0){
-            row.classList.add('bg-gray-300');
-        }else{
-            row.classList.add('bg-white');
-        }
-        i++;
+        row.style.display = "none";
+        row.classList.add("hidden");
     });
-
 
     document.addEventListener("DOMContentLoaded", function(){
         const projectFilter = document.getElementById("projectFilter");

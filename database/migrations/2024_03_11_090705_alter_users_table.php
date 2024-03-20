@@ -24,6 +24,11 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        //
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('password');
+            $table->dropColumn('telemovel');
+            $table->dropColumn('funcoes');
+            $table->dropColumn('status');
+        });
     }
 };

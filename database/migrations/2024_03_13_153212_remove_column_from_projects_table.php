@@ -21,7 +21,7 @@ return new class extends Migration {
     public function down(): void
     {
         Schema::table('projetos', function (Blueprint $table) {
-            $table->integer('responsavel_id')->nullable();
+            $table->dropColumn('responsavel_id');
         });
     }
 };

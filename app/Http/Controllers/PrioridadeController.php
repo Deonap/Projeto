@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Projeto;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PrioridadeController extends Controller
@@ -12,7 +13,7 @@ class PrioridadeController extends Controller
      */
     public function index()
     {
-        return view('prioridades.index');
+        return view('prioridades.index')->with(['projetos' => Projeto::all(), 'users' => User::all()]);
     }
 
     /**

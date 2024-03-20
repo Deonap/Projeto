@@ -11,7 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('projetos', function (Blueprint $table) {
-            $table->enum('status', ['Por fazer', 'Em progresso', 'Feito'])->default('Por fazer')->after('obs');
+            $table->enum('status', ['Pendente', 'Ativo', 'Terminado'])->default('Pendente')->after('obs');
         });
     }
 

@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div>
-                    <table class="table table-fixed min-w-full mt-5 teste" id="inProgressTable">
+                    <table class="table table-fixed min-w-full mt-5 teste" id="activeTable">
                         <thead>
                             <tr class="w-full bg-slate-700 h-10"><td colspan="6" class="visible text-center text-white">Projetos em progresso</td></tr>
                             <tr>
@@ -48,7 +48,7 @@
                         </thead>
                         <tbody>
                             @foreach($projetos as $projeto)
-                                @if($projeto->status == 'Em progresso')
+                                @if($projeto->status == 'Ativo')
                                     <tr role="row" class="h-10 m-auto">
                                         <td class="visible w-[20%]">
                                             {{$projeto->nome}}
@@ -138,7 +138,7 @@
                         </thead>
                         <tbody>
                             @foreach($projetos as $projeto)
-                                @if($projeto->status == 'Feito')
+                                @if($projeto->status == 'Terminado')
                                     <tr role="row" class="h-10 m-auto">
                                         <td class='visible w-[20%]'>
                                             {{$projeto->nome}}
@@ -190,7 +190,7 @@
 </x-app-layout>
 <script>
     var i = 0;
-    document.querySelectorAll("#inProgressTable tbody tr").forEach(function(row){
+    document.querySelectorAll("#activeTable tbody tr").forEach(function(row){
         if(i % 2 === 0){
             row.classList.add('bg-gray-300');
         }else{
@@ -211,14 +211,14 @@
 
     document.addEventListener("DOMContentLoaded", function() {
         const projectFilter = document.getElementById("projectFilter");
-        const inProgressTable = document.querySelectorAll("#inProgressTable tbody tr");
+        const activeTable = document.querySelectorAll("#activeTable tbody tr");
         const finishedTable = document.querySelectorAll("#finishedTable tbody tr");
 
         projectFilter.addEventListener("change", function() {
             const filterValue = this.value.toLowerCase().trim();
             var flag = filterValue == 0; 
             var i = 0;
-            inProgressTable.forEach(function(row) {
+            activeTable.forEach(function(row) {
                 var cells = row.getElementsByTagName("td");
                 var supervisorId = cells[6].textContent.toLowerCase().trim();
 

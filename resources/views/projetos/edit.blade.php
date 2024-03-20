@@ -30,13 +30,13 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-5">
-                <a href="{{route('projeto.index')}}" class="bg-sky-900 text-white p-2 hover:no-underline">
+                <a href="{{route('projetos.index')}}" class="bg-sky-900 text-white p-2 hover:no-underline">
                     < Voltar
                 </a>
                 <p class="mt-5 font-semibold">Editar Projeto</p>
                 <p class="font-light">Parametrize os seguintes campos para editar este Projeto.</p>
                 <div>
-                    <form action="{{route('projeto.update', $projeto->id)}}" method="POST">
+                    <form action="{{route('projetos.update', $projeto->id)}}" method="POST">
                         @csrf
                         @method('PUT')
 

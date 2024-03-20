@@ -1,18 +1,17 @@
-<title>Editar Utilizador</title>
+<title>Adicionar Utilizador</title>
 <x-app-layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p5">
-                <a href="{{route('user.index')}}" class="bg-sky-900 text-white p-2">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-5">
+                <a href="{{route('users.index')}}" class="bg-sky-900 text-white p-2">
                     < Voltar
                 </a>
-                <h4 class="font-semibold mt-5">Editar Utilizador</h4>
-                <p class="font-light">Parametrize os seguintes campos para editar o perfil deste Utilizador.</p>
+                <h4 class="mt-5 font-semibold">Adicionar Utilizador</h4>
+                <p class="font-light">Parametrize os seguintes campos para adicionar um novo Utilizador.</p>
                 <div>
-                    <form action="{{route('user.update', $user->id)}}" method="POST" autocomplete="off">
+                    <form action="{{route('users.store')}}" method="POST">
                         @csrf
-                        @method('PUT')
-
+                        
                         @if($errors->any())
                         <ul>
                             @foreach($errors->all() as $error)
@@ -22,48 +21,47 @@
                         @endif
 
                         <div class="flex flex-wrap">
-                            <input type="hidden" name="id" value="{{$user->id}}">
+                            <input type="hidden" name="id">
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Nome</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" type="text" name="nome" value="{{$user->nome}}">
+                                <input class="w-full sm:w-11/12 mt-2" type="text" name="nome">
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Email</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" type="text" name="email" value="{{$user->email}}">
+                                <input class="w-full sm:w-11/12 mt-2" type="text" name="email">
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Password</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" type="password" name="password"
-                                    placeholder="Preencher apenas se pretender alterar a password!">
+                                <input class="w-full sm:w-11/12 mt-2" type="password" name="password">
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Telemóvel</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" type="text" name="telemovel" value="{{$user->telemovel}}">
+                                <input class="w-full sm:w-11/12 mt-2" type="text" name="telemovel">
                             </div>
-                            <div class="w-full sm:w-1/2 mt-4" mt-4>
+                            <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Funções</label>
                                 <br>
                                 <select class="w-full sm:w-11/12 mt-2" name="funcoes">
-                                    <option value="Administrador" @if ($user->funcoes == 'Administrador') selected @endif >Administrador</option>
-                                    <option value="Técnico" @if($user->funcoes == 'Técnico') selected @endif >Técnico</option>
+                                    <option value="Administrador">Administrador</option>
+                                    <option value="Técnico">Técnico</option>
                                 </select>
                             </div>
-                            <div class="w-full sm:w-1/2 mt-4" mt-4>
+                            <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Status</label>
                                 <br>
                                 <select class="w-full sm:w-11/12 mt-2" name="status">                        
-                                    <option value="Ativo" @if ($user->status == 'Ativo') selected @endif >Ativo</option>
-                                    <option value="Inativo" @if ($user->status == 'Inativo') selected @endif >Inativo</option>
+                                    <option value="Ativo">Ativo</option>
+                                    <option value="Inativo">Inativo</option>
                                 </select>
                             </div>
                         </div>
                         <div class="mt-5 ml-20">
                             <button class="bg-sky-900 text-white p-2" type="submit">
-                                Guardar
+                                Adicionar
                             </button>
                         </div>
                     </form>

@@ -12,7 +12,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user.index')->with('users', User::paginate(20));
+        return view('users.index')->with('users', User::paginate(20));
     }
 
     /**
@@ -20,7 +20,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        return view('users.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class UserController extends Controller
         $user->status = $request->input('status');
 
         $user->save();
-        return redirect(route('user.index'));
+        return redirect(route('users.index'));
     }
 
     /**
@@ -61,7 +61,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('user.edit')->with('user', $user);
+        return view('users.edit')->with('user', $user);
     }
 
     /**
@@ -90,7 +90,7 @@ class UserController extends Controller
         $user->status = $request->input('status');
 
         $user->save();
-        return redirect(route('user.index'));
+        return redirect(route('users.index'));
     }
 
     /**
@@ -99,6 +99,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect(route('user.index'));
+        return redirect(route('users.index'));
     }
 }

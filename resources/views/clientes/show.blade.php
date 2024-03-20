@@ -3,7 +3,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-5">
-                <a href="{{route('cliente.index')}}" class="bg-sky-900 text-white p-2">
+                <a href="{{route('clientes.index')}}" class="bg-sky-900 text-white p-2">
                     < Voltar
                 </a>
                 <p class="mt-5 font-semibold">Cliente</p>

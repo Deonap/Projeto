@@ -1,17 +1,17 @@
-<title>Adicionar Utilizador</title>
+<title>Adicionar Cliente</title>
 <x-app-layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-5">
-                <a href="{{route('user.index')}}" class="bg-sky-900 text-white p-2">
+                <a href="{{route('clientes.index')}}" class="bg-sky-900 text-white p-2">
                     < Voltar
                 </a>
-                <h4 class="mt-5 font-semibold">Adicionar Utilizador</h4>
-                <p class="font-light">Parametrize os seguintes campos para adicionar um novo Utilizador.</p>
+                <p class="mt-5 font-semibold">Adicionar Cliente</p>
+                <p class="font-light">Parametrize os seguintes campos para adicionar um novo Cliente.</p>
                 <div>
-                    <form action="{{route('user.store')}}" method="POST">
+                    <form action="{{route('clientes.store')}}" method="POST">
                         @csrf
-                        
+
                         @if($errors->any())
                         <ul>
                             @foreach($errors->all() as $error)
@@ -21,7 +21,7 @@
                         @endif
 
                         <div class="flex flex-wrap">
-                            <input type="hidden" name="id">
+                            <input type="hidden" name="id" value="">
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Nome</label>
                                 <br>
@@ -33,9 +33,9 @@
                                 <input class="w-full sm:w-11/12 mt-2" type="text" name="email">
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
-                                <label class="font-bold">Password</label>
+                                <label class="font-bold">Telefone</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" type="password" name="password">
+                                <input class="w-full sm:w-11/12 mt-2" type="text" name="telefone">
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Telemóvel</label>
@@ -43,20 +43,19 @@
                                 <input class="w-full sm:w-11/12 mt-2" type="text" name="telemovel">
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
-                                <label class="font-bold">Funções</label>
+                                <label class="font-bold">Morada</label>
                                 <br>
-                                <select class="w-full sm:w-11/12 mt-2" name="funcoes">
-                                    <option value="Administrador">Administrador</option>
-                                    <option value="Técnico">Técnico</option>
-                                </select>
+                                <input class="w-full sm:w-11/12 mt-2" type="text" name="morada">
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
-                                <label class="font-bold">Status</label>
+                                <label class="font-bold">Código-Postal</label>
                                 <br>
-                                <select class="w-full sm:w-11/12 mt-2" name="status">                        
-                                    <option value="Ativo">Ativo</option>
-                                    <option value="Inativo">Inativo</option>
-                                </select>
+                                <input class="w-full sm:w-11/12 mt-2" type="text" name="codigoPostal">
+                            </div>
+                            <div class="w-full sm:w-1/2 mt-4">
+                                <label class="font-bold">Localidade</label>
+                                <br>
+                                <input class="w-full sm:w-11/12 mt-2" type="text" name="localidade">
                             </div>
                         </div>
                         <div class="mt-5 ml-20">
@@ -69,4 +68,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>  
+</x-app-layout>

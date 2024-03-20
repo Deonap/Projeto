@@ -15,7 +15,7 @@ class ProjetoController extends Controller
      */
     public function index()
     {
-        return view("projeto.index")->with(["projetos" => Projeto::all(),"users" => User::all()]);
+        return view("projetos.index")->with(["projetos" => Projeto::all(),"users" => User::all()]);
     }
 
     /**
@@ -23,7 +23,7 @@ class ProjetoController extends Controller
      */
     public function create()
     {
-        return view("projeto.create")->with(['clientes' => Cliente::All(), 'users' => User::where('status', 'Ativo')->get()]);
+        return view("projetos.create")->with(['clientes' => Cliente::All(), 'users' => User::where('status', 'Ativo')->get()]);
     }
 
     /**
@@ -63,7 +63,7 @@ class ProjetoController extends Controller
             $userTask->save();
         }
 
-        return redirect(route('projeto.index'));
+        return redirect(route('projetos.index'));
     }
 
     /**
@@ -79,7 +79,7 @@ class ProjetoController extends Controller
      */
     public function edit(Projeto $projeto)
     {
-        return view('projeto.edit')->with(['projeto' => $projeto, 'clientes' => Cliente::all(), 'users' => User::where('status', 'Ativo')->get()]);
+        return view('projetos.edit')->with(['projeto' => $projeto, 'clientes' => Cliente::all(), 'users' => User::where('status', 'Ativo')->get()]);
     }
 
     /**
@@ -129,14 +129,14 @@ class ProjetoController extends Controller
             }
         }
         $projeto->save();
-        return redirect(route('projeto.index'));
+        return redirect(route('projetos.index'));
     }
 
     public function updateStatus(Projeto $projeto, string $status)
     {
         $projeto->status = $status;
         $projeto->save();
-        return redirect(route('projeto.index'));
+        return redirect(route('projetos.index'));
     }
 
     /**
@@ -145,6 +145,6 @@ class ProjetoController extends Controller
     public function destroy(Projeto $projeto)
     {
         $projeto->delete();
-        return redirect(route('projeto.index'));
+        return redirect(route('projetos.index'));
     }
 }

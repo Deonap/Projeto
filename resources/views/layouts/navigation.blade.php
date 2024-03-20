@@ -27,14 +27,17 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="hover:no-underline">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('user.index')" :active="request()->routeIs('user*')" class="hover:no-underline">
+                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('user*')" class="hover:no-underline">
                         {{ __('Utilizadores') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('cliente.index')" :active="request()->routeIs('cliente*')" class="hover:no-underline">
+                    <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('cliente*')" class="hover:no-underline">
                         {{ __('Clientes') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('projeto.index')" :active="request()->routeIs('projeto*')" class="hover:no-underline">
+                    <x-nav-link :href="route('projetos.index')" :active="request()->routeIs('projeto*')" class="hover:no-underline">
                         {{ __('Projetos') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('prioridades.index')" :active="request()->routeIs('prioridade*')" class="hover:no-underline">
+                        {{ __('Prioridades') }}
                     </x-nav-link>
                 </div>
             </div>

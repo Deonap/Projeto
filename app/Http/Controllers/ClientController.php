@@ -12,7 +12,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view('cliente.index')->with('clientes', Cliente::paginate(10));
+        return view('clientes.index')->with('clientes', Cliente::paginate(10));
     }
 
     /**
@@ -20,7 +20,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('cliente.create');
+        return view('clientes.create');
     }
 
     /**
@@ -48,7 +48,7 @@ class ClientController extends Controller
         $cliente->localidade = $request->input('localidade');
 
         $cliente->save();
-        return redirect(route('cliente.index'));
+        return redirect(route('clientes.index'));
     }
 
     /**
@@ -56,7 +56,7 @@ class ClientController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        return view('cliente.show')->with('cliente', $cliente);
+        return view('clientes.show')->with('cliente', $cliente);
     }
 
     /**
@@ -64,7 +64,7 @@ class ClientController extends Controller
      */
     public function edit(Cliente $cliente)
     {
-        return view('cliente.edit')->with('cliente', $cliente);
+        return view('clientes.edit')->with('cliente', $cliente);
     }
 
     /**
@@ -95,7 +95,7 @@ class ClientController extends Controller
         $cliente->localidade = $request->input('localidade');
 
         $cliente->save();
-        return redirect(route('cliente.index'));
+        return redirect(route('clientes.index'));
     }
 
     /**
@@ -104,6 +104,6 @@ class ClientController extends Controller
     public function destroy(Cliente $cliente)
     {
         $cliente->delete();
-        return redirect(route('cliente.index'));
+        return redirect(route('clientes.index'));
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\PrioridadeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProjetoController;
@@ -31,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::controller(UserController::class)->prefix('user')->name('user')->middleware('auth')->group(function () {
+Route::controller(UserController::class)->prefix('users')->name('users')->middleware('auth')->group(function () {
     Route::get('/', 'index')->name('.index');
     Route::get('/create', 'create')->name('.create');
     Route::post('/store', 'store')->name('.store');
@@ -40,7 +41,7 @@ Route::controller(UserController::class)->prefix('user')->name('user')->middlewa
     Route::delete('/destroy/{user}', 'destroy')->name('.destroy');
 });
 
-Route::controller(ClientController::class)->prefix('cliente')->name('cliente')->middleware('auth')->group(function () {
+Route::controller(ClientController::class)->prefix('clientes')->name('clientes')->middleware('auth')->group(function () {
     Route::get('/', 'index')->name('.index');
     Route::get('/create', 'create')->name('.create');
     Route::post('/store', 'store')->name('.store');
@@ -50,7 +51,7 @@ Route::controller(ClientController::class)->prefix('cliente')->name('cliente')->
     Route::delete('/destroy/{cliente}', 'destroy')->name('.destroy');
 });
 
-Route::controller(ProjetoController::class)->prefix('projeto')->name('projeto')->middleware('auth')->group(function () {
+Route::controller(ProjetoController::class)->prefix('projetos')->name('projetos')->middleware('auth')->group(function () {
     Route::get('/', 'index')->name('.index');
     Route::get('/create', 'create')->name('.create');
     Route::post('/store', 'store')->name('.store');
@@ -58,5 +59,15 @@ Route::controller(ProjetoController::class)->prefix('projeto')->name('projeto')-
     Route::put('/update/{projeto}', 'update')->name('.update');
     Route::delete('/destroy/{projeto}', 'destroy')->name('.destroy');
 });
+
+Route::controller(PrioridadeController::class)->prefix('prioridades')->name('prioridades')->middleware('auth')->group(function () {
+    Route::get('/', 'index')->name('.index');
+    Route::get('/create', 'create')->name('.create');
+    Route::post('/store', 'store')->name('.store');
+    Route::get('/edit/{prioridade}', 'edit')->name('.edit');
+    Route::put('/update/{prioridade}', 'update')->name('.update');
+    Route::delete('/destroy/{prioridade}', 'destroy')->name('.destroy');
+});
+
 
 require __DIR__ . '/auth.php';

@@ -13,14 +13,17 @@
                         <label class="font-bold">Supervisor</label>
                         <br>
                         <select class="w-full sm:w-1/2 mt-2" name="users" id="projectFilter">
+                            <option value="0" class="text-center">-- Mostrar todos --</option>
                             @foreach ($users as $user)
-                                <option value="{{$user->id}}">{{$user->nome}}</option>   
+                                @if($user->funcoes == 'Administrador')
+                                    <option value="{{$user->id}}">{{$user->nome}}</option>   
+                                @endif
                             @endforeach
                         </select>
                     </div>
                 </div>
                 <div>
-                    <table class="table table-fixed min-w-full mt-5" id="inProgressTable">
+                    <table class="table table-fixed min-w-full mt-5 teste" id="inProgressTable">
                         <thead>
                             <tr class="w-full bg-slate-700 h-10"><td colspan="6" class="visible text-center text-white">Projetos em progresso</td></tr>
                             <tr>
@@ -95,6 +98,9 @@
                                                 </form>
                                             </div>
                                         </td>
+                                        <td class="hidden">
+                                            {{$projeto->Supervisor->id}}
+                                        </td>
                                     </tr>
                                 @endif
                             @endforeach
@@ -105,7 +111,7 @@
                 <div class="mt-[20px]">
                     <table class="table table-fixed min-w-full" id="finishedTable">
                         <thead>
-                            <tr class="w-full bg-slate-700 h-10"><td colspan="6" class="visible text-center text-white">Projetos em progresso</td></tr>
+                            <tr class="w-full bg-slate-700 h-10"><td colspan="6" class="visible text-center text-white">Projetos terminados</td></tr>
                             <tr>
                                 <th class="visible">
                                     Nome
@@ -165,6 +171,9 @@
                                                 </form>
                                             </div>
                                         </td>
+                                        <td class="hidden">
+                                            {{$projeto->Supervisor->id}}
+                                        </td>
                                     </tr>
                                 @endif
                             @endforeach
@@ -194,4 +203,67 @@
         }
         i++;
     });
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const projectFilter = document.getElementById("projectFilter");
+        const inProgressTable = document.querySelectorAll("#inProgressTable tbody tr");
+        const finishedTable = document.querySelectorAll("#finishedTable tbody tr");
+
+        projectFilter.addEventListener("change", function() {
+            const filterValue = this.value.toLowerCase().trim();
+            var flag = filterValue == 0; 
+            var i = 0;
+            inProgressTable.forEach(function(row) {
+                var cells = row.getElementsByTagName("td");
+                var supervisorId = cells[6].textContent.toLowerCase().trim();
+
+                if (supervisorId == filterValue || flag) {
+                    if (i % 2 === 0){
+                        row.classList.remove('bg-white');
+                        row.classList.add('bg-gray-300');
+                    }else{
+                        row.classList.remove('bg-gray-300');
+                        row.classList.add('bg-white');
+                    }
+
+                    i++;
+                    row.style.display = "";
+                    row.classList.remove("hidden");
+                } else {
+                    row.style.display = "none";
+                    row.classList.add("hidden");
+                }
+            });
+        });
+
+        projectFilter.addEventListener("change", function() {
+            const filterValue = this.value.toLowerCase().trim();
+            var flag = filterValue == 0; 
+            var i = 0;
+            finishedTable.forEach(function(row) {
+                var cells = row.getElementsByTagName("td");
+                var supervisorId = cells[6].textContent.toLowerCase().trim();
+
+                if (supervisorId == filterValue || flag) {
+                    if (i % 2 === 0){
+                        row.classList.remove('bg-white');
+                        row.classList.add('bg-gray-300');
+                    }else{
+                        row.classList.remove('bg-gray-300');
+                        row.classList.add('bg-white');
+                    }
+
+                    i++;
+                    row.style.display = "";
+                    row.classList.remove("hidden");
+                } else {
+                    row.style.display = "none";
+                    row.classList.add("hidden");
+                }
+            });
+        });
+    });
+
+
 </script>

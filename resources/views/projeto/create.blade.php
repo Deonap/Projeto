@@ -52,7 +52,7 @@
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Nome</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" type="text" name="nome"/>
+                                <input class="w-full sm:w-11/12 mt-2" autocomplete="off" type="text" name="nome"/>
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Cliente</label>

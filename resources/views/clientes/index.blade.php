@@ -21,7 +21,7 @@
                     <table class="table table-fixed w-full" id="clientTable">
                         <thead>
                             <tr class="w-full">
-                                <td colspan="5" class="w-full">
+                                <td colspan="100" class="w-full">
                                 </td>
                             </tr>
 

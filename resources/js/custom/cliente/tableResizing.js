@@ -12,18 +12,22 @@ function adjustColumns(config) {
         aux(columns[index], span);
     });
 }
+/*
+NOME    EMAIL   TELEMOVEL   MORADA  BTNS
+100     0       0           0       0
 
+*/
 function resize(w = window.innerWidth){
     if (w < 640) {
-        adjustColumns([5, 0, 0, 0, 0]);
+        adjustColumns([100, 0, 0, 0, 0]);
     } else if (w < 768) {
-        adjustColumns([3, 2, 0, 0, 0]);
+        adjustColumns([45, 55, 0, 0, 0]);
     } else if (w < 1024) {
-        adjustColumns([3, 1, 1, 0, 0]);
+        adjustColumns([33, 42, 25, 0, 0]);
     } else if (w < 1280) {
-        adjustColumns([1, 1, 1, 2, 0]);
+        adjustColumns([22, 28, 17, 33, 0]);
     } else {
-        adjustColumns([1, 1, 1, 1, 1]);
+        adjustColumns([20, 25, 15, 30, 10]);
     }
 }
 

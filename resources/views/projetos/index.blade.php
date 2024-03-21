@@ -42,22 +42,22 @@
                             </tr>
 
                             <tr class="hidden headerRow">
-                                <th class="table-cell w-[20%] col1">
+                                <th class="table-cell col1">
                                     Nome
                                 </th>
-                                <th class="sm:table-cell w-[15%] col2">
+                                <th class="sm:table-cell col2">
                                     Cliente
                                 </th>
-                                <th class="md:table-cell w-[15%] col3">
+                                <th class="md:table-cell col3">
                                     Tipo
                                 </th>
-                                <th class="lg:table-cell w-[30%] col4">
+                                <th class="lg:table-cell col4">
                                     Observações
                                 </th>
-                                <th class="xl:table-cell w-[10%] col5">
+                                <th class="xl:table-cell col5">
                                     Data Limite
                                 </th>
-                                <th class="xl:table-cell w-[10%] col6">
+                                <th class="xl:table-cell col6">
                                 </th>
                                 <th class="hidden">
                                 </th>
@@ -66,7 +66,7 @@
                         <tbody>
                             @foreach($projetos as $projeto)
                                 @if($projeto->status == 'Ativo')
-                                    <tr role="row" class="h-10 m-auto">
+                                    <tr role="row" class="h-10 m-auto hidden">
                                         <td class="table-cell col1">
                                             {{$projeto->nome}}
                                         </td>
@@ -169,7 +169,7 @@
                         <tbody>
                             @foreach($projetos as $projeto)
                                 @if($projeto->status == 'Terminado')
-                                    <tr role="row" class="h-10 m-auto">
+                                    <tr role="row" class="h-10 m-auto hidden">
                                         <td class="table-cell col1" >
                                             {{$projeto->nome}}
                                         </td>

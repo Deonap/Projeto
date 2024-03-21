@@ -1,12 +1,3 @@
-document.querySelectorAll("#activeProjects tbody tr").forEach(function (row) {
-    row.style.display = "none";
-    row.classList.add("hidden");
-});
-document.querySelectorAll("#pendingProjects tbody tr").forEach(function (row) {
-    row.style.display = "none";
-    row.classList.add("hidden");
-});
-
 document.addEventListener("DOMContentLoaded", function () {
     const projectFilter = document.getElementById("projectFilter");
     const activeProjects = document.querySelectorAll("#activeProjects tbody tr");

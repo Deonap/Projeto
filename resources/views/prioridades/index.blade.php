@@ -57,7 +57,7 @@
                         <tbody>
                             @foreach($projetos as $projeto)
                                 @if($projeto->status == 'Ativo')
-                                    <tr role="row" class="h-10 m-auto">
+                                    <tr role="row" class="h-10 m-auto hidden">
                                         <td class="table-cell col1">
                                             {{$projeto->nome}}
                                         </td>
@@ -116,7 +116,7 @@
                                     Sem dados
                                 </td>
                             </tr>
-                            
+
                             <tr class="hidden headerRow">
                                 <th class="table-cell col1">
                                     Nome
@@ -140,7 +140,7 @@
                         <tbody>
                             @foreach($projetos as $projeto)
                                 @if($projeto->status == 'Pendente')
-                                    <tr role="row" class="h-10 m-auto">
+                                    <tr role="row" class="h-10 m-auto hidden">
                                         <td class="table-cell col1">
                                             {{$projeto->nome}}
                                         </td>

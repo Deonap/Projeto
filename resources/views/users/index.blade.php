@@ -1,6 +1,7 @@
 <head>
     <title>Utilizadores</title>
     @vite(['resources/js/custom/user/tableResizing.js'])
+    @vite(['resources/js/custom/user/searchFilter.js'])
 </head>
 <x-app-layout>
     <div class="py-12">
@@ -17,22 +18,26 @@
                     <input class="mt-8" type="text" placeholder="Pesquisar" id="userFilter" autocomplete="off">
                 </div>
                 <div class="mt-4">
-                    <table class="table table-fixed min-w-full" id="userTable">
+                    <table class="table table-fixed w-full" id="userTable">
                         <thead>
                             <tr class="w-full">
-                                <th class="visible w-[20%]">
+                                <td colspan="5" class="w-full">
+                                </td>
+                            </tr>
+                            <tr class="w-full">
+                                <th class="visible w-[20%] col1">
                                     Nome
                                 </th>
-                                <th class="sm:visible w-[25%]">
+                                <th class="sm:visible w-[25%] col2">
                                     Email
                                 </th>
-                                <th class="md:visible w-[15%]">
+                                <th class="md:visible w-[15%] col3">
                                     Status
                                 </th>
-                                <th class="lg:visible w-[30%]">
+                                <th class="lg:visible w-[30%] col4">
                                     Tipo de Acesso
                                 </th>
-                                <th class="xl:visible w-[10%]">
+                                <th class="xl:visible w-[10%] col5">
 
                                 </th>
                             </tr>
@@ -61,7 +66,7 @@
                                 <td class="lg:visible col4">
                                     {{$user->funcoes}}
                                 </td>
-                                <td class="xl:visible col5 w-[0%] xl:w-[10%]">
+                                <td class="xl:visible col5">
                                     <div class="flex items-center space-x-2">
                                         <!-- botão editar -->
                                         <a href="{{route('users.edit', $user->id)}}" title="Editar">
@@ -94,43 +99,3 @@
         </div>
     </div>
 </x-app-layout>
-
-<script>
-    var i = 0;
-    document.querySelectorAll("#userTable tbody tr").forEach(function(row){
-        if(i % 2 === 0){
-            row.classList.add('bg-gray-300');
-        }else{
-            row.classList.add('bg-white');
-        }
-        i++;
-    });
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const filterInput = document.getElementById("userFilter");
-        const tableRows = document.querySelectorAll("#userTable tbody tr");
-
-        filterInput.addEventListener("input", function() {
-            const filterValue = this.value.toLowerCase().trim();
-            var i = 0;
-            tableRows.forEach(function(row) {
-                const name = row.querySelector("td:first-child").textContent.toLowerCase();
-                if (name.includes(filterValue)) {
-                    if (i % 2 === 0){
-                        row.classList.remove('bg-white');
-                        row.classList.add('bg-gray-300');
-                    }else{
-                        row.classList.remove('bg-gray-300');
-                        row.classList.add('bg-white');
-                    }
-                    i++;
-                    row.style.display = "";
-                    row.classList.remove("hidden");
-                } else {
-                    row.style.display = "none";
-                    row.classList.add("hidden");
-                }
-            });
-        });
-    });
-</script>

@@ -1,6 +1,7 @@
 <head>
     <title>Clientes</title>
     @vite(['resources/js/custom/cliente/tableResizing.js'])
+    @vite(['resources/js/custom/cliente/searchFilter.js'])
 </head>
 <x-app-layout>
     <div class="py-12">
@@ -17,42 +18,47 @@
                     <input class="mt-8" type="text" placeholder="Pesquisar" id="clientFilter" autocomplete="off">
                 </div>
                 <div class="mt-4">
-                    <table class="table space-y-5 w-full" id="clientTable">
+                    <table class="table table-fixed w-full" id="clientTable">
                         <thead>
-                            <tr>
-                                <th class="visible w-[20%]">
+                            <tr class="w-full">
+                                <td colspan="5" class="w-full">
+                                </td>
+                            </tr>
+
+                            <tr class="w-full h-10">
+                                <th class="table-cell w-[20%] col1">
                                     Nome
                                 </th>
-                                <th class="sm:visible w-[15%]">
+                                <th class="sm:table-cell w-[15%] col2">
                                     Email
                                 </th>
-                                <th class="md:visible w-[15%]">
+                                <th class="md:table-cell w-[15%] col3">
                                     Telemóvel
                                 </th>
-                                <th class="lg:visible w-[40%]">
+                                <th class="lg:table-cell w-[40%] col4">
                                     Morada
                                 </th>
-                                <th class="xl:visible w-[10%]">
+                                <th class="xl:table-cell w-[10%] col5">
 
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($clientes as $cliente)
-                            <tr role="row" class="h-10 w-full">
-                                <td class="visible col1">
+                            <tr role="row" class="h-10 m-auto">
+                                <td class="table-cell col1">
                                     {{$cliente->nome}}
                                 </td>
-                                <td class="sm:visible col2">
+                                <td class="sm:table-cell col2">
                                     {{$cliente->email}}
                                 </td>
-                                <td class="md:visible col3">
+                                <td class="md:table-cell col3">
                                     {{$cliente->telemovel}}
                                 </td>
-                                <td class="lg:visible col4">
+                                <td class="lg:table-cell col4">
                                     {{$cliente->morada}}
                                 </td>
-                                <td class="xl:visible col5">
+                                <td class="xl:table-cell col5">
                                     <div class="flex items-center space-x-2">
                                         <!-- botão "info" -->
                                         <a href="{{route('clientes.show', $cliente->id)}}" title="Mais informação">
@@ -91,43 +97,3 @@
         </div>
     </div>
 </x-app-layout>
-
-<script>
-    var i = 0;
-    document.querySelectorAll("#clientTable tbody tr").forEach(function(row){
-        if(i % 2 === 0){
-            row.classList.add('bg-gray-300');
-        }else{
-            row.classList.add('bg-white');
-        }
-        i++;
-    });
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const filterInput = document.getElementById("clientFilter");
-        const tableRows = document.querySelectorAll("#clientTable tbody tr");
-
-        filterInput.addEventListener("input", function() {
-            const filterValue = this.value.toLowerCase().trim();
-            var i = 0;
-            tableRows.forEach(function(row) {
-                const name = row.querySelector("td:first-child").textContent.toLowerCase();
-                if (name.includes(filterValue)) {
-                    if (i % 2 === 0){
-                        row.classList.remove('bg-white');
-                        row.classList.add('bg-gray-300');
-                    }else{
-                        row.classList.remove('bg-gray-300');
-                        row.classList.add('bg-white');
-                    }
-                    i++;
-                    row.style.display = "";
-                    row.classList.remove("hidden");
-                } else {
-                    row.style.display = "none";
-                    row.classList.add("hidden");
-                }
-            });
-        });
-    });
-</script>

@@ -1,6 +1,7 @@
 <head>
     <title>Projetos</title>
     @vite(['resources/js/custom/projeto/tableResizing.js'])
+    @vite(['resources/js/custom/projeto/searchFilter.js'])
 </head>
 <x-app-layout>
     <div class="py-12">
@@ -12,10 +13,10 @@
                     </a>
                 </div>
                 <div>
-                    <div class="w-full sm:w-1/2 mt-4">                  
+                    <div class="w-full md:w-3/4 lg:w-1/2 mt-4">                  
                         <label class="font-bold">Supervisor</label>
                         <br>
-                        <select class="w-full sm:w-1/2 mt-2" name="users" id="projectFilter">
+                        <select class="w-full md:w-3/4 lg:w-1/2 mt-2" name="users" id="projectFilter">
                             <option disabled selected>Selecione um administrador</option>
                             @foreach ($users as $user)
                                 @if($user->funcoes == 'Administrador')
@@ -25,8 +26,8 @@
                         </select>
                     </div>
                 </div>
-                <div>
-                    <table class="table table-fixed min-w-full mt-5" id="activeTable">
+                <div class="mt-5">
+                    <table class="table table-fixed w-full" id="activeTable">
                         <thead>
                             <tr class="w-full bg-slate-700 h-10">
                                 <td colspan="6" class="visible text-center text-white w-full">
@@ -123,31 +124,31 @@
                 </div>
                 <br>
                 <div class="mt-[20px]">
-                    <table class="table table-fixed min-w-full" id="finishedTable">
+                    <table class="table table-fixed w-full" id="finishedTable">
                         <thead>
                             <tr class="w-full bg-slate-700 h-10">
-                                <td colspan="6" class="visible text-center text-white">
+                                <td colspan="6" class="visible text-center text-white w-full">
                                     Projetos terminados
                                 </td>
                             </tr>
                             
-                            <tr>
-                                <th class="visible w-[20%]">
+                            <tr class="w-full h-10">
+                                <th class="visible w-[20%] col1">
                                     Nome
                                 </th>
-                                <th class="sm:visible w-[15%]">
+                                <th class="sm:visible w-[15%] col2">
                                     Cliente
                                 </th>
-                                <th class="md:visible w-[15%]">
+                                <th class="md:visible w-[15%] col3">
                                     Tipo
                                 </th>
-                                <th class="lg:visible w-[30%]">
+                                <th class="lg:visible w-[30%] col4">
                                     Observações
                                 </th>
-                                <th class="xl:visible w-[10%]">
+                                <th class="xl:visible w-[10%] col5">
                                     Data terminado
                                 </th>
-                                <th class="xl:visible w-[10%]">
+                                <th class="xl:visible w-[10%] col6">
                                 </th>
                                 <th class="hidden">
                                 </th>
@@ -205,72 +206,3 @@
         </div>
     </div>
 </x-app-layout>
-<script>
-    document.querySelectorAll("#activeTable tbody tr").forEach(function(row){
-        row.style.display = "none";
-        row.classList.add("hidden");
-    });
-    var i = 0;
-    document.querySelectorAll("#finishedTable tbody tr").forEach(function(row){
-        row.style.display = "none";
-        row.classList.add("hidden");
-    });
-
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const projectFilter = document.getElementById("projectFilter");
-        const activeTable = document.querySelectorAll("#activeTable tbody tr");
-        const finishedTable = document.querySelectorAll("#finishedTable tbody tr");
-
-        projectFilter.addEventListener("change", function() {
-            const filterValue = this.value.toLowerCase().trim();
-            var i = 0;
-            activeTable.forEach(function(row) {
-                var cells = row.getElementsByTagName("td");
-                var supervisorId = cells[6].textContent.toLowerCase().trim();
-
-                if (supervisorId == filterValue) {
-                    if (i % 2 === 0){
-                        row.classList.remove('bg-white');
-                        row.classList.add('bg-gray-300');
-                    }else{
-                        row.classList.remove('bg-gray-300');
-                        row.classList.add('bg-white');
-                    }
-
-                    i++;
-                    row.style.display = "";
-                    row.classList.remove("hidden");
-                } else {
-                    row.style.display = "none";
-                    row.classList.add("hidden");
-                }
-            });
-        });
-
-        projectFilter.addEventListener("change", function() {
-            const filterValue = this.value.toLowerCase().trim();
-            var i = 0;
-            finishedTable.forEach(function(row) {
-                var cells = row.getElementsByTagName("td");
-                var supervisorId = cells[6].textContent.toLowerCase().trim();
-
-                if (supervisorId == filterValue) {
-                    if (i % 2 === 0){
-                        row.classList.remove('bg-white');
-                        row.classList.add('bg-gray-300');
-                    }else{
-                        row.classList.remove('bg-gray-300');
-                        row.classList.add('bg-white');
-                    }
-                    i++;
-                    row.style.display = "";
-                    row.classList.remove("hidden");
-                } else {
-                    row.style.display = "none";
-                    row.classList.add("hidden");
-                }
-            });
-        });
-    });
-</script>

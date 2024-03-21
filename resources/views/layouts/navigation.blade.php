@@ -1,6 +1,6 @@
 <style>
     td, th{
-        visibility: hidden;
+        display: none;
         text-align: left;
     }
     td{

@@ -1,16 +1,17 @@
 <head>
     <title>Prioridades</title>
-    @vite(['resources/js/custom/projeto/tableResizing.js'])
+    @vite(['resources/js/custom/prioridade/tableResizing.js'])
+    @vite(['resources/js/custom/prioridade/searchFilter.js'])
 </head>
 <x-app-layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-5">
                 <div>
-                    <div class="w-full sm:w-1/2 mt-4">                  
+                    <div class="w-full md:w-3/4 lg:w-1/2 mt-4">                  
                         <label class="font-bold">Responsável</label>
                         <br>
-                        <select class="w-full sm:w-1/2 mt-2" name="users" id="projectFilter">
+                        <select class="w-full md:w-3/4 lg:w-1/2 mt-2" name="users" id="projectFilter">
                             <option value="0" selected disabled>Selecione um responsável</option>
                             @foreach ($users as $user)
                                 <option value="{{$user->id}}">{{$user->nome}}</option>
@@ -18,29 +19,29 @@
                         </select>
                     </div>
                 </div>
-                <div>
-                    <table class="table table-fixed min-w-full mt-5" id="activeProjects">
+                <div class="mt-5">
+                    <table class="table table-fixed w-full" id="activeProjects">
                         <thead>
                             <tr class="w-full bg-slate-700 h-10">
-                                <td colspan="6" class="visible text-center text-white w-full">
+                                <td colspan="5" class="visible text-center text-white w-full">
                                     Projetos ativos
                                 </td>
                             </tr>
 
-                            <tr>
-                                <th class="visible w-[20%] col1">
+                            <tr class="w-full h-10">
+                                <th class="visible col1">
                                     Nome
                                 </th>
-                                <th class="sm:visible w-[20%] col2">
+                                <th class="sm:visible col2">
                                     Cliente
                                 </th>
-                                <th class="md:visible w-[15%] col3">
+                                <th class="md:visible col3">
                                     Tipo
                                 </th>
-                                <th class="lg:visible w-[30%] col4">
+                                <th class="lg:visible col4">
                                     Observações
                                 </th>
-                                <th class="xl:visible w-[15%] col5">
+                                <th class="xl:visible col5">
                                     Data Limite
                                 </th>
                                 <th class="hidden">
@@ -96,28 +97,28 @@
                 </div>
                 <br>
                 <div class="mt-[20px]">
-                    <table class="table table-fixed min-w-full mt-5 teste" id="pendingProjects">
+                    <table class="table table-fixed w-full mt-5" id="pendingProjects">
                         <thead>
                             <tr class="w-full bg-slate-700 h-10">
-                                <td colspan="6" class="visible text-center text-white w-full"
+                                <td colspan="5" class="visible text-center text-white w-full"
                                     >Projetos pendentes
                                 </td>
                             </tr>
 
-                            <tr>
-                                <th class="visible w-[20%] col1">
+                            <tr class="w-full h-10">
+                                <th class="visible col1">
                                     Nome
                                 </th>
-                                <th class="sm:visible w-[20%] col2">
+                                <th class="sm:visible col2">
                                     Cliente
                                 </th>
-                                <th class="md:visible w-[15%] col3">
+                                <th class="md:visible col3">
                                     Tipo
                                 </th>
-                                <th class="lg:visible w-[30%] col4">
+                                <th class="lg:visible col4">
                                     Observações
                                 </th>
-                                <th class="xl:visible w-[15%] col5">
+                                <th class="xl:visible col5">
                                     Data Limite
                                 </th>
                                 <th class="hidden">
@@ -175,73 +176,3 @@
         </div>
     </div>
 </x-app-layout>
-<script>
-    document.querySelectorAll("#activeProjects tbody tr").forEach(function(row){
-        row.style.display = "none";
-        row.classList.add("hidden");
-    });
-    document.querySelectorAll("#pendingProjects tbody tr").forEach(function(row){
-        row.style.display = "none";
-        row.classList.add("hidden");
-    });
-
-    document.addEventListener("DOMContentLoaded", function(){
-        const projectFilter = document.getElementById("projectFilter");
-        const activeProjects = document.querySelectorAll("#activeProjects tbody tr");
-        const pendingProjects = document.querySelectorAll("#pendingProjects tbody tr");
-
-        projectFilter.addEventListener("change", function(){
-            const filterValue = this.value.toLowerCase().trim();
-            var i = 0;
-            activeProjects.forEach(function(row) {
-                var cells = row.getElementsByTagName("td");
-                var responsaveis_id = cells[5].textContent.toLowerCase()
-                    .split('\n').map(function(item) {
-                        return item.trim();
-                    }).filter(function(item) {
-                        return item !== '';
-                    });
-                if (responsaveis_id.includes(filterValue)) {
-                    if (i % 2 === 0){
-                        row.classList.remove('bg-white');
-                        row.classList.add('bg-gray-300');
-                    }else{
-                        row.classList.remove('bg-gray-300');
-                        row.classList.add('bg-white');
-                    }
-                    i++;
-                    row.style.display = "";
-                    row.classList.remove("hidden");
-                } else {
-                    row.style.display = "none";
-                    row.classList.add("hidden");
-                }
-            });
-            var u = 0;
-            pendingProjects.forEach(function(row) {
-                var cells = row.getElementsByTagName("td");
-                var responsaveis_id = cells[5].textContent.toLowerCase()
-                    .split('\n').map(function(item) {
-                        return item.trim();
-                    }).filter(function(item) {
-                        return item !== '';
-                    });
-                if (responsaveis_id.includes(filterValue)) {
-                    if (u % 2 === 0){
-                        row.classList.remove('bg-white');
-                        row.classList.add('bg-gray-300');
-                    }else{
-                        row.classList.remove('bg-gray-300');
-                        row.classList.add('bg-white');
-                    }
-                    u++;
-                    row.style.display = "";
-                    row.classList.remove("hidden");
-                } else {
-                    row.style.display = "none";
-                    row.classList.add("hidden");
-                }
-            });
-        });        
-    });
-</script>

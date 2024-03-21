@@ -28,7 +28,13 @@
                                 </td>
                             </tr>
 
-                            <tr class="w-full h-10">
+                            <tr class="w-full">
+                                <td colspan="100" class="table-cell text-center font-black noDataRow">
+                                    Sem dados
+                                </td>
+                            </tr>
+
+                            <tr class="hidden headerRow">
                                 <th class="table-cell col1">
                                     Nome
                                 </th>
@@ -105,7 +111,13 @@
                                 </td>
                             </tr>
 
-                            <tr class="w-full h-10">
+                            <tr class="w-full">
+                                <td colspan="100" class="table-cell text-center font-black noDataRow">
+                                    Sem dados
+                                </td>
+                            </tr>
+                            
+                            <tr class="hidden headerRow">
                                 <th class="table-cell col1">
                                     Nome
                                 </th>

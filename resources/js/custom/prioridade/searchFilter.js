@@ -12,9 +12,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const activeProjects = document.querySelectorAll("#activeProjects tbody tr");
     const pendingProjects = document.querySelectorAll("#pendingProjects tbody tr");
 
+    const noDataRow = document.getElementsByClassName('noDataRow');
+    const headerRow = document.getElementsByClassName('headerRow');
+
     projectFilter.addEventListener("change", function () {
         const filterValue = this.value.toLowerCase().trim();
         var i = 0;
+        var flag = 0;
+        var flag1 = 0;
         activeProjects.forEach(function (row) {
             var cells = row.getElementsByTagName("td");
             var responsaveis_id = cells[5].textContent.toLowerCase()
@@ -24,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     return item !== '';
                 });
             if (responsaveis_id.includes(filterValue)) {
+                flag = 1;
                 if (i % 2 === 0) {
                     row.classList.remove('bg-white');
                     row.classList.add('bg-gray-300');
@@ -39,7 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 row.classList.add("hidden");
             }
         });
-        var u = 0;
+
+        i = 0;
         pendingProjects.forEach(function (row) {
             var cells = row.getElementsByTagName("td");
             var responsaveis_id = cells[5].textContent.toLowerCase()
@@ -49,14 +56,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     return item !== '';
                 });
             if (responsaveis_id.includes(filterValue)) {
-                if (u % 2 === 0) {
+                flag1 = 1;
+                if (i % 2 === 0) {
                     row.classList.remove('bg-white');
                     row.classList.add('bg-gray-300');
                 } else {
                     row.classList.remove('bg-gray-300');
                     row.classList.add('bg-white');
                 }
-                u++;
+                i++;
                 row.style.display = "";
                 row.classList.remove("hidden");
             } else {
@@ -64,5 +72,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 row.classList.add("hidden");
             }
         });
+
+        toggleRows(flag, noDataRow[0], headerRow[0]);
+        toggleRows(flag1, noDataRow[1], headerRow[1]);
     });
 });
+
+function toggleRows(flag, noDataRow, headerRow) {
+    if (flag) {
+        noDataRow.classList.remove('table-cell');
+        noDataRow.classList.add('hidden');
+
+        headerRow.classList.remove('hidden');
+    } else {
+        noDataRow.classList.remove('hidden');
+        noDataRow.classList.add('table-cell');
+
+        headerRow.classList.add('hidden');
+    }
+}

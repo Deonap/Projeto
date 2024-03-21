@@ -35,7 +35,13 @@
                                 </td>
                             </tr>
                             
-                            <tr>
+                            <tr class="w-full">
+                                <td colspan="100" class="table-cell text-center font-black noDataRow">
+                                    Sem dados
+                                </td>
+                            </tr>
+
+                            <tr class="hidden headerRow">
                                 <th class="table-cell w-[20%] col1">
                                     Nome
                                 </th>
@@ -123,7 +129,7 @@
                     </table>
                 </div>
                 <br>
-                <div class="mt-[20px]">
+                <div class="mt-[15px]">
                     <table class="table table-fixed w-full" id="finishedTable">
                         <thead>
                             <tr class="w-full bg-slate-700 h-10">
@@ -131,8 +137,14 @@
                                     Projetos terminados
                                 </td>
                             </tr>
-                            
-                            <tr class="w-full h-10">
+
+                            <tr class="w-full">
+                                <td colspan="100" class="table-cell text-center font-black noDataRow">
+                                    Sem dados
+                                </td>
+                            </tr>
+
+                            <tr class="hidden headerRow">
                                 <th class="table-cell col1">
                                     Nome
                                 </th>

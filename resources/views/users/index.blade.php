@@ -21,23 +21,23 @@
                     <table class="table table-fixed w-full" id="userTable">
                         <thead>
                             <tr class="w-full">
-                                <td colspan="5" class="w-full">
+                                <td colspan="100" class="w-full">
                                 </td>
                             </tr>
                             <tr class="w-full">
-                                <th class="table-cell w-[20%] col1">
+                                <th class="table-cell col1">
                                     Nome
                                 </th>
-                                <th class="sm:table-cell w-[25%] col2">
+                                <th class="sm:table-cell col2">
                                     Email
                                 </th>
-                                <th class="md:table-cell w-[15%] col3">
+                                <th class="md:table-cell col3">
                                     Status
                                 </th>
-                                <th class="lg:table-cell w-[30%] col4">
+                                <th class="lg:table-cell col4">
                                     Tipo de Acesso
                                 </th>
-                                <th class="xl:table-cell w-[10%] col5">
+                                <th class="xl:table-cell col5">
 
                                 </th>
                             </tr>
@@ -45,15 +45,6 @@
                         <tbody>
                             @foreach($users as $user)
                             <tr role="row" class="h-10 m-auto">
-                                <!--
-                                        sm  md  lg  xl
-                                    100	45	33	22	20
-                                    0	55	42	28	25
-                                    0	0	25	17	15
-                                    0	0	0	33	30
-                                    0	0	0	0	10
-                                -->
-
                                 <td class="table-cell col1">
                                     {{$user->nome}}
                                 </td>

@@ -13,17 +13,26 @@ function adjustColumns(config) {
     });
 }
 
+/*
+NOME    EMAIL   STATUS  TIPO    BTNS
+100     0       0       0       0
+45      55      0       0       0
+33      42      25      0       0
+22      28      17      33      0
+20      15      15      30      10
+*/
+
 function resize(w = window.innerWidth){
     if (w < 640) {
-        adjustColumns([5, 0, 0, 0, 0]);
+        adjustColumns([100, 0, 0, 0, 0]);
     } else if (w < 768) {
-        adjustColumns([2, 3, 0, 0, 0]);
+        adjustColumns([45, 55, 0, 0, 0]);
     } else if (w < 1024) {
-        adjustColumns([2, 2, 1, 0, 0]);
+        adjustColumns([33, 42, 25, 0, 0]);
     } else if (w < 1280) {
-        adjustColumns([1, 2, 1, 1, 0]);
+        adjustColumns([22, 28, 17, 33, 0]);
     } else {
-        adjustColumns([1, 1, 1, 1, 1]);
+        adjustColumns([20, 25, 15, 30, 10]);
     }
 }
 

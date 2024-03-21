@@ -13,17 +13,26 @@ function adjustColumns(config) {
     });
 }
 
+/*
+NOME    CLIENTE  TIPO   OBS  DATA
+100     0        0      0    0
+60	    40       0      0    0
+40	    30       30     0    0
+20	    19       19     42   0
+20 	    20       15     35   10
+*/
+
 function resize(w = window.innerWidth){
     if (w < 640) {
-        adjustColumns([5, 0, 0, 0, 0]);
+        adjustColumns([100, 0, 0, 0, 0]);
     } else if (w < 768) {
-        adjustColumns([2, 3, 0, 0, 0]);
+        adjustColumns([60, 40, 0, 0, 0]);
     } else if (w < 1024) {
-        adjustColumns([2, 2, 1, 0, 0]);
+        adjustColumns([40, 30, 30, 0, 0]);
     } else if (w < 1280) {
-        adjustColumns([1, 2, 1, 1, 0]);
+        adjustColumns([20, 20, 20, 40, 0]);
     } else {
-        adjustColumns([1, 1, 1, 1, 1]);
+        adjustColumns([20, 20, 15, 30, 15]);
     }
 }
 

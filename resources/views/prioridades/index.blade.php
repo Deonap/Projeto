@@ -23,7 +23,7 @@
                     <table class="table table-fixed w-full" id="activeProjects">
                         <thead>
                             <tr class="w-full bg-slate-700 h-10">
-                                <td colspan="5" class="table-cell text-center text-white w-full">
+                                <td colspan="100" class="table-cell text-center text-white w-full">
                                     Projetos ativos
                                 </td>
                             </tr>
@@ -100,7 +100,7 @@
                     <table class="table table-fixed w-full mt-5" id="pendingProjects">
                         <thead>
                             <tr class="w-full bg-slate-700 h-10">
-                                <td colspan="5" class="table-cell text-center text-white w-full"
+                                <td colspan="100" class="table-cell text-center text-white w-full"
                                     >Projetos pendentes
                                 </td>
                             </tr>

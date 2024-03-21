@@ -1,6 +1,6 @@
 <head>
     <title>Utilizadores</title>
-    @vite(['resources/js/user/tableResizing.js'])
+    @vite(['resources/js/custom/user/tableResizing.js'])
 </head>
 <x-app-layout>
     <div class="py-12">
@@ -38,7 +38,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($users as $i => $user)
+                            @foreach($users as $user)
                             <tr role="row" class="h-10 m-auto">
                                 <!--
                                         sm  md  lg  xl

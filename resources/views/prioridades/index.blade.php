@@ -1,4 +1,7 @@
-<title>Prioridades</title>
+<head>
+    <title>Prioridades</title>
+    @vite(['resources/js/custom/projeto/tableResizing.js'])
+</head>
 <x-app-layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -16,26 +19,31 @@
                     </div>
                 </div>
                 <div>
-                    <table class="table table-fixed min-w-full mt-5 teste" id="activeProjects">
+                    <table class="table table-fixed min-w-full mt-5" id="activeProjects">
                         <thead>
-                            <tr class="w-full bg-slate-700 h-10"><td colspan="6" class="visible text-center text-white">Projetos ativos</td></tr>
+                            <tr class="w-full bg-slate-700 h-10">
+                                <td colspan="6" class="visible text-center text-white w-full">
+                                    Projetos ativos
+                                </td>
+                            </tr>
+
                             <tr>
-                                <th class="visible">
+                                <th class="visible w-[20%] col1">
                                     Nome
                                 </th>
-                                <th class="visible">
+                                <th class="sm:visible w-[20%] col2">
                                     Cliente
                                 </th>
-                                <th class="visible">
+                                <th class="md:visible w-[15%] col3">
                                     Tipo
                                 </th>
-                                <th class="visible">
+                                <th class="lg:visible w-[30%] col4">
                                     Observações
                                 </th>
-                                <th class="visible">
+                                <th class="xl:visible w-[15%] col5">
                                     Data Limite
                                 </th>
-                                <th class="visible">
+                                <th class="hidden">
                                 </th>
                             </tr>
                         </thead>
@@ -43,16 +51,16 @@
                             @foreach($projetos as $projeto)
                                 @if($projeto->status == 'Ativo')
                                     <tr role="row" class="h-10 m-auto">
-                                        <td class="visible w-[20%]">
+                                        <td class="visible col1">
                                             {{$projeto->nome}}
                                         </td>
-                                        <td class="visible w-[20%]">
+                                        <td class="sm:visible col2">
                                             {{$projeto->cliente->nome}}
                                         </td>
-                                        <td class="visible w-[10%]">
+                                        <td class="md:visible col3">
                                             {{$projeto->tipo}}
                                         </td>
-                                        <td class="visible w-[35%]">
+                                        <td class="lg:visible col4">
                                             {{$projeto->obs}}
                                         </td>
                                         <?php
@@ -68,14 +76,14 @@
                                                 $txtcolor = 'text-yellow-600';
                                             }
                                         ?>
-                                        <td class="visible {{$txtcolor}} w-[10%]">
+                                        <td class="xl:visible col5 {{$txtcolor}}">
                                             <?php
                                                 $data = DateTime::createFromFormat('Y-m-d',$projeto->dataLimite);
                                                 $dataFormatada = $data->format('d-m-Y');
                                             ?>
                                             {{$dataFormatada}}
                                         </td>
-                                        <td class="hidden responsavel_id">
+                                        <td class="hidden">
                                             @foreach($projeto->users as $u)
                                                     {{$u->id}}
                                             @endforeach
@@ -90,24 +98,29 @@
                 <div class="mt-[20px]">
                     <table class="table table-fixed min-w-full mt-5 teste" id="pendingProjects">
                         <thead>
-                            <tr class="w-full bg-slate-700 h-10"><td colspan="6" class="visible text-center text-white">Projetos pendentes</td></tr>
+                            <tr class="w-full bg-slate-700 h-10">
+                                <td colspan="6" class="visible text-center text-white w-full"
+                                    >Projetos pendentes
+                                </td>
+                            </tr>
+
                             <tr>
-                                <th class="visible">
+                                <th class="visible w-[20%] col1">
                                     Nome
                                 </th>
-                                <th class="visible">
+                                <th class="sm:visible w-[20%] col2">
                                     Cliente
                                 </th>
-                                <th class="visible">
+                                <th class="md:visible w-[15%] col3">
                                     Tipo
                                 </th>
-                                <th class="visible">
+                                <th class="lg:visible w-[30%] col4">
                                     Observações
                                 </th>
-                                <th class="visible">
+                                <th class="xl:visible w-[15%] col5">
                                     Data Limite
                                 </th>
-                                <th class="visible">
+                                <th class="hidden">
                                 </th>
                             </tr>
                         </thead>
@@ -115,16 +128,16 @@
                             @foreach($projetos as $projeto)
                                 @if($projeto->status == 'Pendente')
                                     <tr role="row" class="h-10 m-auto">
-                                        <td class="visible w-[20%]">
+                                        <td class="visible col1">
                                             {{$projeto->nome}}
                                         </td>
-                                        <td class="visible w-[20%]">
+                                        <td class="sm:visible col2">
                                             {{$projeto->cliente->nome}}
                                         </td>
-                                        <td class="visible w-[10%]">
+                                        <td class="md:visible col3">
                                             {{$projeto->tipo}}
                                         </td>
-                                        <td class="visible w-[35%]">
+                                        <td class="lg:visible col4">
                                             {{$projeto->obs}}
                                         </td>
                                         <?php
@@ -140,14 +153,14 @@
                                                 $txtcolor = 'text-yellow-600';
                                             }
                                         ?>
-                                        <td class="visible {{$txtcolor}} w-[10%]">
+                                        <td class="xl:visible col5 {{$txtcolor}}">
                                             <?php
                                                 $data = DateTime::createFromFormat('Y-m-d',$projeto->dataLimite);
                                                 $dataFormatada = $data->format('d-m-Y');
                                             ?>
                                             {{$dataFormatada}}
                                         </td>
-                                        <td class="hidden responsavel_id">
+                                        <td class="hidden">
                                             @foreach($projeto->users as $u)
                                                     {{$u->id}}
                                             @endforeach

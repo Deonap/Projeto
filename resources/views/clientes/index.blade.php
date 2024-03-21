@@ -1,6 +1,6 @@
 <head>
     <title>Clientes</title>
-    @vite(['resources/js/cliente/tableResizing.js'])
+    @vite(['resources/js/custom/cliente/tableResizing.js'])
 </head>
 <x-app-layout>
     <div class="py-12">
@@ -38,7 +38,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($clientes as $i => $cliente)
+                            @foreach($clientes as $cliente)
                             <tr role="row" class="h-10 w-full">
                                 <td class="visible col1">
                                     {{$cliente->nome}}

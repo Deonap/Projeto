@@ -25,19 +25,19 @@
                                 </td>
                             </tr>
                             <tr class="w-full">
-                                <th class="visible w-[20%] col1">
+                                <th class="table-cell w-[20%] col1">
                                     Nome
                                 </th>
-                                <th class="sm:visible w-[25%] col2">
+                                <th class="sm:table-cell w-[25%] col2">
                                     Email
                                 </th>
-                                <th class="md:visible w-[15%] col3">
+                                <th class="md:table-cell w-[15%] col3">
                                     Status
                                 </th>
-                                <th class="lg:visible w-[30%] col4">
+                                <th class="lg:table-cell w-[30%] col4">
                                     Tipo de Acesso
                                 </th>
-                                <th class="xl:visible w-[10%] col5">
+                                <th class="xl:table-cell w-[10%] col5">
 
                                 </th>
                             </tr>
@@ -54,19 +54,19 @@
                                     0	0	0	0	10
                                 -->
 
-                                <td class="visible col1">
+                                <td class="table-cell col1">
                                     {{$user->nome}}
                                 </td>
-                                <td class="sm:visible col2">
+                                <td class="sm:table-cell col2">
                                     {{$user->email}}
                                 </td>
-                                <td class="md:visible col3">
+                                <td class="md:table-cell col3">
                                     {{$user->status}}
                                 </td>
-                                <td class="lg:visible col4">
+                                <td class="lg:table-cell col4">
                                     {{$user->funcoes}}
                                 </td>
-                                <td class="xl:visible col5">
+                                <td class="xl:table-cell col5">
                                     <div class="flex items-center space-x-2">
                                         <!-- botão editar -->
                                         <a href="{{route('users.edit', $user->id)}}" title="Editar">

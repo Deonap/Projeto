@@ -30,28 +30,28 @@
                     <table class="table table-fixed w-full" id="activeTable">
                         <thead>
                             <tr class="w-full bg-slate-700 h-10">
-                                <td colspan="6" class="visible text-center text-white w-full">
+                                <td colspan="6" class="table-cell text-center text-white w-full">
                                     Projetos em progresso
                                 </td>
                             </tr>
                             
                             <tr>
-                                <th class="visible w-[20%] col1">
+                                <th class="table-cell w-[20%] col1">
                                     Nome
                                 </th>
-                                <th class="sm:visible w-[15%] col2">
+                                <th class="sm:table-cell w-[15%] col2">
                                     Cliente
                                 </th>
-                                <th class="md:visible w-[15%] col3">
+                                <th class="md:table-cell w-[15%] col3">
                                     Tipo
                                 </th>
-                                <th class="lg:visible w-[30%] col4">
+                                <th class="lg:table-cell w-[30%] col4">
                                     Observações
                                 </th>
-                                <th class="xl:visible w-[10%] col5">
+                                <th class="xl:table-cell w-[10%] col5">
                                     Data Limite
                                 </th>
-                                <th class="xl:visible w-[10%] col6">
+                                <th class="xl:table-cell w-[10%] col6">
                                 </th>
                                 <th class="hidden">
                                 </th>
@@ -61,16 +61,16 @@
                             @foreach($projetos as $projeto)
                                 @if($projeto->status == 'Ativo')
                                     <tr role="row" class="h-10 m-auto">
-                                        <td class="visible col1">
+                                        <td class="table-cell col1">
                                             {{$projeto->nome}}
                                         </td>
-                                        <td class="sm:visible col2">
+                                        <td class="sm:table-cell col2">
                                             {{$projeto->cliente->nome}}
                                         </td>
-                                        <td class="md:visible col3">
+                                        <td class="md:table-cell col3">
                                             {{$projeto->tipo}}
                                         </td>
-                                        <td class="lg:visible col4">
+                                        <td class="lg:table-cell col4">
                                             {{$projeto->obs}}
                                         </td>
                                         <?php
@@ -86,14 +86,14 @@
                                                 $txtcolor = 'text-yellow-600';
                                             }
                                         ?>
-                                        <td class="xl:visible {{$txtcolor}} col5">
+                                        <td class="xl:table-cell {{$txtcolor}} col5">
                                             <?php
                                                 $data = DateTime::createFromFormat('Y-m-d',$projeto->dataLimite);
                                                 $dataFormatada = $data->format('d-m-Y');
                                             ?>
                                             {{$dataFormatada}}
                                         </td>
-                                        <td class="xl:visible col6">
+                                        <td class="xl:table-cell col6">
                                             <div class="flex items-center space-x-2">
                                                 <!-- botão editar -->
                                                 <a href="{{route('projetos.edit', $projeto->id)}}" title="Editar">
@@ -127,28 +127,28 @@
                     <table class="table table-fixed w-full" id="finishedTable">
                         <thead>
                             <tr class="w-full bg-slate-700 h-10">
-                                <td colspan="6" class="visible text-center text-white w-full">
+                                <td colspan="6" class="table-cell text-center text-white w-full">
                                     Projetos terminados
                                 </td>
                             </tr>
                             
                             <tr class="w-full h-10">
-                                <th class="visible w-[20%] col1">
+                                <th class="table-cell w-[20%] col1">
                                     Nome
                                 </th>
-                                <th class="sm:visible w-[15%] col2">
+                                <th class="sm:table-cell w-[15%] col2">
                                     Cliente
                                 </th>
-                                <th class="md:visible w-[15%] col3">
+                                <th class="md:table-cell w-[15%] col3">
                                     Tipo
                                 </th>
-                                <th class="lg:visible w-[30%] col4">
+                                <th class="lg:table-cell w-[30%] col4">
                                     Observações
                                 </th>
-                                <th class="xl:visible w-[10%] col5">
+                                <th class="xl:table-cell w-[10%] col5">
                                     Data terminado
                                 </th>
-                                <th class="xl:visible w-[10%] col6">
+                                <th class="xl:table-cell w-[10%] col6">
                                 </th>
                                 <th class="hidden">
                                 </th>
@@ -158,22 +158,22 @@
                             @foreach($projetos as $projeto)
                                 @if($projeto->status == 'Terminado')
                                     <tr role="row" class="h-10 m-auto">
-                                        <td class="visible col1" >
+                                        <td class="table-cell col1" >
                                             {{$projeto->nome}}
                                         </td>
-                                        <td class="sm:visible col2" >
+                                        <td class="sm:table-cell col2" >
                                             {{$projeto->cliente->nome}}
                                         </td>
-                                        <td class="md:visible col3" >
+                                        <td class="md:table-cell col3" >
                                             {{$projeto->tipo}}
                                         </td>
-                                        <td class="lg:visible col4" >
+                                        <td class="lg:table-cell col4" >
                                             {{$projeto->obs}}
                                         </td>
-                                        <td class="xl:visible col5" >
+                                        <td class="xl:table-cell col5" >
                                             {{date_format($projeto->updated_at, 'd-m-Y')}}
                                         </td>
-                                        <td class="xl:visible col6" >
+                                        <td class="xl:table-cell col6" >
                                             <div class="flex items-center space-x-2">
                                                 <!-- botão editar -->
                                                 <a href="{{route('projetos.edit', $projeto->id)}}" title="Editar">

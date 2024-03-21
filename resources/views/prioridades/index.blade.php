@@ -23,25 +23,25 @@
                     <table class="table table-fixed w-full" id="activeProjects">
                         <thead>
                             <tr class="w-full bg-slate-700 h-10">
-                                <td colspan="5" class="visible text-center text-white w-full">
+                                <td colspan="5" class="table-cell text-center text-white w-full">
                                     Projetos ativos
                                 </td>
                             </tr>
 
                             <tr class="w-full h-10">
-                                <th class="visible col1">
+                                <th class="table-cell col1">
                                     Nome
                                 </th>
-                                <th class="sm:visible col2">
+                                <th class="sm:table-cell col2">
                                     Cliente
                                 </th>
-                                <th class="md:visible col3">
+                                <th class="md:table-cell col3">
                                     Tipo
                                 </th>
-                                <th class="lg:visible col4">
+                                <th class="lg:table-cell col4">
                                     Observações
                                 </th>
-                                <th class="xl:visible col5">
+                                <th class="xl:table-cell col5">
                                     Data Limite
                                 </th>
                                 <th class="hidden">
@@ -52,16 +52,16 @@
                             @foreach($projetos as $projeto)
                                 @if($projeto->status == 'Ativo')
                                     <tr role="row" class="h-10 m-auto">
-                                        <td class="visible col1">
+                                        <td class="table-cell col1">
                                             {{$projeto->nome}}
                                         </td>
-                                        <td class="sm:visible col2">
+                                        <td class="sm:table-cell col2">
                                             {{$projeto->cliente->nome}}
                                         </td>
-                                        <td class="md:visible col3">
+                                        <td class="md:table-cell col3">
                                             {{$projeto->tipo}}
                                         </td>
-                                        <td class="lg:visible col4">
+                                        <td class="lg:table-cell col4">
                                             {{$projeto->obs}}
                                         </td>
                                         <?php
@@ -77,7 +77,7 @@
                                                 $txtcolor = 'text-yellow-600';
                                             }
                                         ?>
-                                        <td class="xl:visible col5 {{$txtcolor}}">
+                                        <td class="xl:table-cell col5 {{$txtcolor}}">
                                             <?php
                                                 $data = DateTime::createFromFormat('Y-m-d',$projeto->dataLimite);
                                                 $dataFormatada = $data->format('d-m-Y');
@@ -100,25 +100,25 @@
                     <table class="table table-fixed w-full mt-5" id="pendingProjects">
                         <thead>
                             <tr class="w-full bg-slate-700 h-10">
-                                <td colspan="5" class="visible text-center text-white w-full"
+                                <td colspan="5" class="table-cell text-center text-white w-full"
                                     >Projetos pendentes
                                 </td>
                             </tr>
 
                             <tr class="w-full h-10">
-                                <th class="visible col1">
+                                <th class="table-cell col1">
                                     Nome
                                 </th>
-                                <th class="sm:visible col2">
+                                <th class="sm:table-cell col2">
                                     Cliente
                                 </th>
-                                <th class="md:visible col3">
+                                <th class="md:table-cell col3">
                                     Tipo
                                 </th>
-                                <th class="lg:visible col4">
+                                <th class="lg:table-cell col4">
                                     Observações
                                 </th>
-                                <th class="xl:visible col5">
+                                <th class="xl:table-cell col5">
                                     Data Limite
                                 </th>
                                 <th class="hidden">
@@ -129,16 +129,16 @@
                             @foreach($projetos as $projeto)
                                 @if($projeto->status == 'Pendente')
                                     <tr role="row" class="h-10 m-auto">
-                                        <td class="visible col1">
+                                        <td class="table-cell col1">
                                             {{$projeto->nome}}
                                         </td>
-                                        <td class="sm:visible col2">
+                                        <td class="sm:table-cell col2">
                                             {{$projeto->cliente->nome}}
                                         </td>
-                                        <td class="md:visible col3">
+                                        <td class="md:table-cell col3">
                                             {{$projeto->tipo}}
                                         </td>
-                                        <td class="lg:visible col4">
+                                        <td class="lg:table-cell col4">
                                             {{$projeto->obs}}
                                         </td>
                                         <?php
@@ -154,7 +154,7 @@
                                                 $txtcolor = 'text-yellow-600';
                                             }
                                         ?>
-                                        <td class="xl:visible col5 {{$txtcolor}}">
+                                        <td class="xl:table-cell col5 {{$txtcolor}}">
                                             <?php
                                                 $data = DateTime::createFromFormat('Y-m-d',$projeto->dataLimite);
                                                 $dataFormatada = $data->format('d-m-Y');

@@ -37,6 +37,8 @@ class ProjetoController extends Controller
             'tipo' => 'required',
             'dataLimite' => 'required',
             'supervisor_id' => 'required',
+            'orcamento' => 'required',
+            'tempoPrevisto' => 'required',
             'obs' => 'nullable',
         ]);
 
@@ -46,11 +48,13 @@ class ProjetoController extends Controller
         $projeto->tipo = $request->input('tipo');
         $projeto->dataLimite = $request->input('dataLimite');
         $projeto->supervisor_id = $request->input('supervisor_id');
+        $projeto->orcamento = $request->input('orcamento');
+        $projeto->tempoPrevisto = $request->input('tempoPrevisto');
+        $projeto->tempoInvestido = "00:00";
         $projeto->obs = $request->input('obs');
-        $projeto->status = 'Por fazer';
+        $projeto->status = 'Pendente';
 
         $projeto->save();
-
 
         $validated = $request->validate([
             'responsaveis_id' => 'array',
@@ -94,6 +98,8 @@ class ProjetoController extends Controller
             'dataLimite' => 'required',
             'supervisor_id' => 'required',
             'responsaveis_id' => 'array',
+            'orcamento' => 'required',
+            'tempoPrevisto' => 'required',
             'obs' => 'nullable',
         ]);
 
@@ -102,6 +108,8 @@ class ProjetoController extends Controller
         $projeto->tipo = $request->input('tipo');
         $projeto->dataLimite = $request->input('dataLimite');
         $projeto->supervisor_id = $request->input('supervisor_id');
+        $projeto->orcamento = $request->input('orcamento');
+        $projeto->tempoPrevisto = $request->input('tempoPrevisto');
         $projeto->obs = $request->input('obs');
 
         $projeto->save();
@@ -135,6 +143,13 @@ class ProjetoController extends Controller
     public function updateStatus(Projeto $projeto, string $status)
     {
         $projeto->status = $status;
+        $projeto->save();
+        return redirect(route('projetos.index'));
+    }
+
+    public function updateTimeInvested(Projeto $projeto, string $timeInvested)
+    {
+        $projeto->tempoInvestido = $timeInvested;
         $projeto->save();
         return redirect(route('projetos.index'));
     }

@@ -48,11 +48,11 @@
                         @endif
 
                         <div class="flex flex-wrap">
-                            <input type="hidden" name="id" value="">
+                            <input type="hidden" name="id">
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Nome</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" autocomplete="off" type="text" name="nome"/>
+                                <input class="w-full sm:w-11/12 mt-2" autocomplete="off" type="text" name="nome" value={{old('nome')}}>
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Cliente</label>
@@ -60,7 +60,7 @@
                                 <select class="w-full sm:w-11/12 mt-2" name="cliente_id">
                                     <option disabled selected>Selecione um cliente</option>
                                     @foreach($clientes as $cliente)
-                                        <option value="{{$cliente->id}}">{{$cliente->nome}}</option>
+                                        <option value="{{$cliente->id}}" @selected($cliente->id==old('cliente_id'))>{{$cliente->nome}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -69,18 +69,18 @@
                                 <br>
                                 <select class="w-full sm:w-11/12 mt-2" name="tipo">
                                     <option disabled selected>Selecione o tipo de projeto</option>
-                                    <option value="Software">Software</option>
-                                    <option value="Redes Sociais">Redes Sociais</option>
-                                    <option value="SEO">SEO</option>
-                                    <option value="Loja online">Loja online</option>
-                                    <option value="Integração">Integração</option>
-                                    <option value="Website">Website</option>
+                                    <option value="Software" {{old('tipo') == 'Software' ? 'selected' : ''}} >Software</option>
+                                    <option value="Redes Sociais" {{old('tipo') == 'Redes Sociais' ? 'selected' : ''}}>Redes Sociais</option>
+                                    <option value="SEO" {{old('tipo') == 'SEO' ? 'selected' : ''}}>SEO</option>
+                                    <option value="Loja online" {{old('tipo') == 'Loja online' ? 'selected' : ''}}>Loja online</option>
+                                    <option value="Integração" {{old('tipo') == 'Integração' ? 'selected' : ''}}>Integração</option>
+                                    <option value="Website" {{old('tipo') == 'Website' ? 'selected' : ''}}>Website</option>
                                 </select>
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Data Limite</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" type="date" min={{date('Y-m-d')}} name="dataLimite">
+                                <input class="w-full sm:w-11/12 mt-2" type="date" min={{date('Y-m-d')}} name="dataLimite" value={{old('dataLimite')}}>
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Supervisor</label>
@@ -88,9 +88,9 @@
                                 <select class="w-full sm:w-11/12 mt-2" name="supervisor_id">
                                     <option disabled selected>Selecione um Supervisor</option>
                                     @foreach($users as $user)
-                                    @if($user->funcoes == "Administrador")
-                                    <option value="{{$user->id}}">{{$user->nome}}</option>
-                                @endif
+                                        @if($user->funcoes == "Administrador")
+                                            <option value="{{$user->id}}" @selected($user->id == old('supervisor_id'))>{{$user->nome}}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                             </div>
@@ -99,19 +99,28 @@
                                 <br>
                                 <select title="Escolha os responsáveis" class="selectpicker w-full sm:w-11/12 mt-2" multiple data-live-search="true" name="responsaveis_id[]">
                                     @foreach($users as $user)
-                                    @if($user->funcoes == "Técnico")
-                                        <option value="{{$user->id}}">{{$user->nome}}</option>
-                                    @endif
-                                @endforeach
+                                        @if($user->funcoes == "Técnico")
+                                            <option value="{{$user->id}}" @selected(in_array($user->id, old('responsaveis_id', [])))>{{$user->nome}}</option>
+                                        @endif
+                                    @endforeach
                                 </select>
+                            </div>
+                            <div class="w-full sm:w-1/2 mt-4">
+                                <label class="font-bold">Orçamento (€)</label>
+                                <br>
+                                <input class="w-full sm:w-11/12 mt-2" autocomplete="off" type="text" pattern="[1-9]{1}[0-9]{1,8}\,|\.[0-9]{2}" name="orcamento" value={{old('orcamento')}}>
+                            </div>
+                            <div class="w-full sm:w-1/2 mt-4">
+                                <label class="font-bold">Tempo previsto</label>
+                                <br>
+                                <input class="w-full sm:w-11/12 mt-2" autocomplete="off" pattern="[0-9]{2}:[0-5][0-9]" type="text" placeholder="hh:mm" name="tempoPrevisto" value={{old('tempoPrevisto')}}>
                             </div>
                             <!-- ocupa completamente meio ecrã + 11/12 da segunda metade. Isso é equivalente a 1/2 + (11/12)*1/2 = 23/24 = 95.8(3)% !-->
                             <div class="w-full sm:w-[95.833333%] mt-4">
                                 <label class="font-bold">Observações Gerais</label>
                                 <br>
-                                <textarea class="w-full mt-2" type="text" name="obs"></textarea>
+                                <textarea class="w-full mt-2" autocomplete="off" type="text" name="obs" value={{old('obs')}}></textarea>
                             </div>
-                                
                         </div>
                         <div class="mt-5 ml-20">
                             <button class="bg-sky-900 text-white p-2" type="submit">

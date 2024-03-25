@@ -21,6 +21,9 @@ class Projeto extends Model
         'responsavel_id',
         'obs',
         'status',
+        'orcamento',
+        'tempoPrevisto',
+        'tempoInvestido'
     ];
 
     public function cliente(): BelongsTo

@@ -8,13 +8,15 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-5">
                 <div>
-                    <div class="w-full md:w-3/4 lg:w-1/2 mt-4">                  
+                    <div class="w-full md:w-3/4 lg:w-1/2 mt-4">
                         <label class="font-bold">Responsável</label>
                         <br>
                         <select class="w-full md:w-3/4 xl:w-1/2 mt-2" name="users" id="projectFilter">
                             <option value="0" selected disabled>Selecione um responsável</option>
                             @foreach ($users as $user)
-                                <option value="{{$user->id}}">{{$user->nome}}</option>
+                                @if($user->funcoes == 'Técnico')
+                                    <option value="{{$user->id}}">{{$user->nome}}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>

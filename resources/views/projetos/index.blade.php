@@ -87,7 +87,32 @@
                                         <td class="md:table-cell col4">
                                             {{$projeto->obs}}
                                         </td>
-                                        <td class="lg:table-cell col5">
+                                        <?php
+                                            $tempoInvestido = explode(':', $projeto->tempoInvestido);
+                                            $tempoPrevisto = explode(':', $projeto->tempoPrevisto);
+
+                                            
+                                            $tempoInvestidoH = intval($tempoInvestido[0]);
+                                            $tempoInvestidoM = intval($tempoInvestido[1]);
+
+                                            $tempoPrevistoH = intval($tempoPrevisto[0]);
+                                            $tempoPrevistoM = intval($tempoPrevisto[1]);
+                                            $txTColor = '';
+                                            if ($tempoInvestidoH > $tempoPrevistoH) {
+                                                $txtColor = 'text-rose-600';
+                                            } elseif ($tempoInvestidoH < $tempoPrevistoH) {
+                                                $txtColor = 'text-green-600';
+                                            } else { // hora igual. comparar minutos
+                                                if ($tempoInvestidoM > $tempoPrevistoM) {
+                                                    $txtColor = 'text-rose-600';
+                                                } elseif ($tempoInvestidoM < $tempoPrevistoM) {
+                                                    $txtColor = 'text-green-600';
+                                                } else { // tudo igual
+                                                    $txtColor = 'text-amber-600';
+                                                }
+                                            }
+                                        ?>
+                                        <td class="lg:table-cell col5 {{$txtColor}}">
                                             {{$projeto->tempoInvestido}}
                                         </td>
                                         <td class="lg:table-cell col6">

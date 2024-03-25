@@ -25,12 +25,12 @@
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Nome</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" type="text" name="nome">
+                                <input class="w-full sm:w-11/12 mt-2" type="text" name="nome" value={{old('nome')}}>
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Email</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" type="text" name="email">
+                                <input class="w-full sm:w-11/12 mt-2" type="text" name="email" value={{old('email')}}>
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Password</label>
@@ -40,22 +40,22 @@
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Telemóvel</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" type="text" name="telemovel">
+                                <input class="w-full sm:w-11/12 mt-2" type="text" name="telemovel" value={{old('telemovel')}}>
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Funções</label>
                                 <br>
                                 <select class="w-full sm:w-11/12 mt-2" name="funcoes">
-                                    <option value="Administrador">Administrador</option>
-                                    <option value="Técnico">Técnico</option>
+                                    <option value="Administrador" {{old('funcoes') == 'Administrador' ? 'selected' : ''}}>Administrador</option>
+                                    <option value="Técnico" {{old('funcoes') == 'Técnico' ? 'selected' : ''}}>Técnico</option>
                                 </select>
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Status</label>
                                 <br>
                                 <select class="w-full sm:w-11/12 mt-2" name="status">                        
-                                    <option value="Ativo">Ativo</option>
-                                    <option value="Inativo">Inativo</option>
+                                    <option value="Ativo" {{old('status') == 'Ativo' ? 'selected' : ''}}>Ativo</option>
+                                    <option value="Inativo" {{old('status') == 'Inativo' ? 'selected' : ''}}>Inativo</option>
                                 </select>
                             </div>
                         </div>

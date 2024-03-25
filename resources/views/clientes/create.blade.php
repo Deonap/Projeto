@@ -25,37 +25,37 @@
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Nome</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" type="text" name="nome">
+                                <input class="w-full sm:w-11/12 mt-2" type="text" name="nome" value={{old('nome')}}>
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Email</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" type="text" name="email">
+                                <input class="w-full sm:w-11/12 mt-2" type="text" name="email" value={{old('email')}}>
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Telefone</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" type="text" name="telefone">
+                                <input class="w-full sm:w-11/12 mt-2" type="text" name="telefone" value={{old('telefone')}}>
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Telemóvel</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" type="text" name="telemovel">
+                                <input class="w-full sm:w-11/12 mt-2" type="text" name="telemovel" value={{old('telemovel')}}>
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Morada</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" type="text" name="morada">
+                                <input class="w-full sm:w-11/12 mt-2" type="text" name="morada" value={{old('morada')}}>
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Código-Postal</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" type="text" name="codigoPostal">
+                                <input class="w-full sm:w-11/12 mt-2" type="text" name="codigoPostal" value={{old('codigoPostal')}}>
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Localidade</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" type="text" name="localidade">
+                                <input class="w-full sm:w-11/12 mt-2" type="text" name="localidade" value={{old('localidade')}}>
                             </div>
                         </div>
                         <div class="mt-5 ml-20">

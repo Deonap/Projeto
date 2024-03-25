@@ -31,7 +31,7 @@
                         <thead>
                             <tr class="w-full bg-slate-700 h-10">
                                 <td colspan="100" class="table-cell text-center text-white w-full">
-                                    Projetos em progresso
+                                    Projetos em Progresso
                                 </td>
                             </tr>
                             
@@ -132,7 +132,7 @@
                         <thead>
                             <tr class="w-full bg-slate-700 h-10">
                                 <td colspan="100" class="table-cell text-center text-white w-full">
-                                    Projetos terminados
+                                    Projetos Terminados
                                 </td>
                             </tr>
 

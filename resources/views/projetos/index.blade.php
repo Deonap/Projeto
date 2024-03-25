@@ -90,20 +90,7 @@
                                         <td class="lg:table-cell col6">
                                             {{$projeto->tempoPrevisto}}
                                         </td>
-                                        <?php
-                                            $timestampLimite = strtotime($projeto->dataLimite);
-                                            $timestampAtual = strtotime(date('Y-m-d'));
-                                            $diffTempo = $timestampLimite - $timestampAtual;
-                                            $diffDias = ceil($diffTempo / (60 * 60 * 24));
-
-                                            $txtcolor = '';
-                                            if ($diffDias < 0) {
-                                                $txtcolor = 'text-rose-600';
-                                            } elseif ($diffDias < 3) {
-                                                $txtcolor = 'text-yellow-600';
-                                            }
-                                        ?>
-                                        <td class="xl:table-cell {{$txtcolor}} col7">
+                                        <td class="xl:table-cell col7">
                                             <?php
                                                 $data = DateTime::createFromFormat('Y-m-d',$projeto->dataLimite);
                                                 $dataFormatada = $data->format('d-m-Y');
@@ -154,24 +141,23 @@
                                     Sem dados
                                 </td>
                             </tr>
-
                             <tr class="hidden headerRow">
-                                <th class="table-cell col1">
+                                <th class="table-cell col1_2">
                                     Nome
                                 </th>
-                                <th class="sm:table-cell col2">
+                                <th class="sm:table-cell col2_2">
                                     Cliente
                                 </th>
-                                <th class="md:table-cell col3">
+                                <th class="md:table-cell col3_2">
                                     Tipo
                                 </th>
-                                <th class="lg:table-cell col4">
+                                <th class="lg:table-cell col4_2">
                                     Observações
                                 </th>
-                                <th class="xl:table-cell col5">
+                                <th class="xl:table-cell col5_2">
                                     Data terminado
                                 </th>
-                                <th class="xl:table-cell col6">
+                                <th class="xl:table-cell col6_2">
                                 </th>
                                 <th class="hidden">
                                 </th>
@@ -181,22 +167,22 @@
                             @foreach($projetos as $projeto)
                                 @if($projeto->status == 'Terminado')
                                     <tr role="row" class="h-10 m-auto hidden">
-                                        <td class="table-cell col1" >
+                                        <td class="table-cell col1_2" >
                                             {{$projeto->nome}}
                                         </td>
-                                        <td class="sm:table-cell col2" >
+                                        <td class="sm:table-cell col2_2" >
                                             {{$projeto->cliente->nome}}
                                         </td>
-                                        <td class="md:table-cell col3" >
+                                        <td class="md:table-cell col3_2" >
                                             {{$projeto->tipo}}
                                         </td>
-                                        <td class="lg:table-cell col4" >
+                                        <td class="lg:table-cell col4_2" >
                                             {{$projeto->obs}}
                                         </td>
-                                        <td class="xl:table-cell col5" >
+                                        <td class="xl:table-cell col5_2" >
                                             {{date_format($projeto->updated_at, 'd-m-Y')}}
                                         </td>
-                                        <td class="xl:table-cell col6" >
+                                        <td class="xl:table-cell col6_2" >
                                             <div class="flex items-center space-x-2">
                                                 <!-- botão editar -->
                                                 <a href="{{route('projetos.edit', $projeto->id)}}" title="Editar">

@@ -12,7 +12,10 @@ const columns =
 /*
 NOME    EMAIL   TELEMOVEL   MORADA  BTNS
 100     0       0           0       0
-
+45      55      0           0       0
+33      42      25          0       0
+22      28      17          33      0
+20      25      15          30      10
 */
 
 const weights = [

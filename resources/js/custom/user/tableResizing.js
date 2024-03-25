@@ -1,3 +1,4 @@
+import { loadConfigFromFile } from 'vite';
 import { resize } from '../mainResizing.js';
 
 const columns =

@@ -11,7 +11,7 @@
                     <div class="w-full md:w-3/4 lg:w-1/2 mt-4">                  
                         <label class="font-bold">Responsável</label>
                         <br>
-                        <select class="w-full md:w-3/4 lg:w-1/2 mt-2" name="users" id="projectFilter">
+                        <select class="w-full md:w-3/4 xl:w-1/2 mt-2" name="users" id="projectFilter">
                             <option value="0" selected disabled>Selecione um responsável</option>
                             @foreach ($users as $user)
                                 <option value="{{$user->id}}">{{$user->nome}}</option>

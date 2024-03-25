@@ -16,7 +16,7 @@
                     <div class="w-full md:w-3/4 lg:w-1/2 mt-4">                  
                         <label class="font-bold">Supervisor</label>
                         <br>
-                        <select class="w-full md:w-3/4 lg:w-1/2 mt-2" name="users" id="projectFilter">
+                        <select class="w-full md:w-3/4 xl:w-1/2 mt-2" name="users" id="projectFilter">
                             <option disabled selected>Selecione um administrador</option>
                             @foreach ($users as $user)
                                 @if($user->funcoes == 'Administrador')

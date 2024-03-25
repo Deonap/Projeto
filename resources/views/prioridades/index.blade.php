@@ -35,24 +35,32 @@
                                     Sem dados
                                 </td>
                             </tr>
-
                             <tr class="hidden headerRow">
                                 <th class="hidden">
                                 </th>
                                 <th class="table-cell col1">
+                                    Prioridade
+                                </th>
+                                <th class="table-cell col2">
                                     Nome
                                 </th>
-                                <th class="sm:table-cell col2">
+                                <th class="table-cell col3">
                                     Cliente
                                 </th>
-                                <th class="md:table-cell col3">
+                                <th class="sm:table-cell col4">
                                     Tipo
                                 </th>
-                                <th class="lg:table-cell col4">
+                                <th class="md:table-cell col5">
                                     Observações
                                 </th>
-                                <th class="xl:table-cell col5">
-                                    Data Limite
+                                <th class="lg:table-cell col6">
+                                    Tempo investido
+                                </th>
+                                <th class="lg:table-cell col7">
+                                    Tempo previsto
+                                </th>
+                                <th class="xl:table-cell col8">
+                                    Data limite
                                 </th>
                             </tr>
                         </thead>
@@ -64,33 +72,54 @@
                                             @foreach($projeto->users as $u)
                                                     {{$u->id}}
                                             @endforeach
-                                        </td>
+                                        </td>                                        
                                         <td class="table-cell col1">
+                                            1
+                                        </td>
+                                        <td class="table-cell col2">
                                             {{$projeto->nome}}
                                         </td>
-                                        <td class="sm:table-cell col2">
+                                        <td class="table-cell col3">
                                             {{$projeto->cliente->nome}}
                                         </td>
-                                        <td class="md:table-cell col3">
+                                        <td class="sm:table-cell col4">
                                             {{$projeto->tipo}}
                                         </td>
-                                        <td class="lg:table-cell col4">
+                                        <td class="md:table-cell col5">
                                             {{$projeto->obs}}
                                         </td>
                                         <?php
-                                            $timestampLimite = strtotime($projeto->dataLimite);
-                                            $timestampAtual = strtotime(date('Y-m-d'));
-                                            $diffTempo = $timestampLimite - $timestampAtual;
-                                            $diffDias = ceil($diffTempo / (60 * 60 * 24));
+                                            $tempoInvestido = explode(':', $projeto->tempoInvestido);
+                                            $tempoPrevisto = explode(':', $projeto->tempoPrevisto);
 
-                                            $txtcolor = '';
-                                            if ($diffDias < 0) {
-                                                $txtcolor = 'text-rose-600';
-                                            } elseif ($diffDias < 3) {
-                                                $txtcolor = 'text-yellow-600';
+                                            
+                                            $tempoInvestidoH = intval($tempoInvestido[0]);
+                                            $tempoInvestidoM = intval($tempoInvestido[1]);
+
+                                            $tempoPrevistoH = intval($tempoPrevisto[0]);
+                                            $tempoPrevistoM = intval($tempoPrevisto[1]);
+                                            $txTColor = '';
+                                            if ($tempoInvestidoH > $tempoPrevistoH) {
+                                                $txtColor = 'text-rose-600';
+                                            } elseif ($tempoInvestidoH < $tempoPrevistoH) {
+                                                $txtColor = 'text-green-600';
+                                            } else { // hora igual. comparar minutos
+                                                if ($tempoInvestidoM > $tempoPrevistoM) {
+                                                    $txtColor = 'text-rose-600';
+                                                } elseif ($tempoInvestidoM < $tempoPrevistoM) {
+                                                    $txtColor = 'text-green-600';
+                                                } else { // tudo igual
+                                                    $txtColor = 'text-amber-600';
+                                                }
                                             }
                                         ?>
-                                        <td class="xl:table-cell col5 {{$txtcolor}}">
+                                        <td class="lg:table-cell col6 {{$txtColor}}">
+                                            {{$projeto->tempoInvestido}}
+                                        </td>
+                                        <td class="lg:table-cell col7">
+                                            {{$projeto->tempoPrevisto}}
+                                        </td>
+                                        <td class="xl:table-cell col8">
                                             <?php
                                                 $data = DateTime::createFromFormat('Y-m-d',$projeto->dataLimite);
                                                 $dataFormatada = $data->format('d-m-Y');
@@ -118,69 +147,73 @@
                                     Sem dados
                                 </td>
                             </tr>
-
                             <tr class="hidden headerRow">
                                 <th class="hidden">
                                 </th>
                                 <th class="table-cell col1">
+                                    Prioridade
+                                </th>
+                                <th class="table-cell col2">
                                     Nome
                                 </th>
-                                <th class="sm:table-cell col2">
+                                <th class="table-cell col3">
                                     Cliente
                                 </th>
-                                <th class="md:table-cell col3">
+                                <th class="sm:table-cell col4">
                                     Tipo
                                 </th>
-                                <th class="lg:table-cell col4">
+                                <th class="md:table-cell col5">
                                     Observações
                                 </th>
-                                <th class="xl:table-cell col5">
-                                    Data Limite
+                                <th class="lg:table-cell col6">
+                                    Tempo investido
+                                </th>
+                                <th class="lg:table-cell col7">
+                                    Tempo previsto
+                                </th>
+                                <th class="xl:table-cell col8">
+                                    Data limite
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($projetos as $projeto)
                                 @if($projeto->status == 'Pendente')
-                                    <tr role="row" class="h-10 m-auto hidden">
-                                        <td class="hidden">
-                                            @foreach($projeto->users as $u)
-                                                    {{$u->id}}
-                                            @endforeach
-                                        </td>
-                                        <td class="table-cell col1">
-                                            {{$projeto->nome}}
-                                        </td>
-                                        <td class="sm:table-cell col2">
-                                            {{$projeto->cliente->nome}}
-                                        </td>
-                                        <td class="md:table-cell col3">
-                                            {{$projeto->tipo}}
-                                        </td>
-                                        <td class="lg:table-cell col4">
-                                            {{$projeto->obs}}
-                                        </td>
+                                <tr role="row" class="h-10 m-auto hidden">
+                                    <td class="hidden">
+                                        @foreach($projeto->users as $u)
+                                                {{$u->id}}
+                                        @endforeach
+                                    </td>                                        
+                                    <td class="table-cell col1">
+                                        1
+                                    </td>
+                                    <td class="table-cell col2">
+                                        {{$projeto->nome}}
+                                    </td>
+                                    <td class="table-cell col3">
+                                        {{$projeto->cliente->nome}}
+                                    </td>
+                                    <td class="sm:table-cell col4">
+                                        {{$projeto->tipo}}
+                                    </td>
+                                    <td class="md:table-cell col5">
+                                        {{$projeto->obs}}
+                                    </td>
+                                    <td class="lg:table-cell col6">
+                                        {{$projeto->tempoInvestido}}
+                                    </td>
+                                    <td class="lg:table-cell col7">
+                                        {{$projeto->tempoPrevisto}}
+                                    </td>
+                                    <td class="xl:table-cell col8">
                                         <?php
-                                            $timestampLimite = strtotime($projeto->dataLimite);
-                                            $timestampAtual = strtotime(date('Y-m-d'));
-                                            $diffTempo = $timestampLimite - $timestampAtual;
-                                            $diffDias = ceil($diffTempo / (60 * 60 * 24));
-
-                                            $txtcolor = '';
-                                            if ($diffDias < 0) {
-                                                $txtcolor = 'text-rose-600';
-                                            } elseif ($diffDias < 3) {
-                                                $txtcolor = 'text-yellow-600';
-                                            }
+                                            $data = DateTime::createFromFormat('Y-m-d',$projeto->dataLimite);
+                                            $dataFormatada = $data->format('d-m-Y');
                                         ?>
-                                        <td class="xl:table-cell col5 {{$txtcolor}}">
-                                            <?php
-                                                $data = DateTime::createFromFormat('Y-m-d',$projeto->dataLimite);
-                                                $dataFormatada = $data->format('d-m-Y');
-                                            ?>
-                                            {{$dataFormatada}}
-                                        </td>
-                                    </tr>
+                                        {{$dataFormatada}}
+                                    </td>
+                                </tr>
                                 @endif
                             @endforeach
                         </tbody>

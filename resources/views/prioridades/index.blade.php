@@ -37,6 +37,8 @@
                             </tr>
 
                             <tr class="hidden headerRow">
+                                <th class="hidden">
+                                </th>
                                 <th class="table-cell col1">
                                     Nome
                                 </th>
@@ -52,14 +54,17 @@
                                 <th class="xl:table-cell col5">
                                     Data Limite
                                 </th>
-                                <th class="hidden">
-                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($projetos as $projeto)
                                 @if($projeto->status == 'Ativo')
                                     <tr role="row" class="h-10 m-auto hidden">
+                                        <td class="hidden">
+                                            @foreach($projeto->users as $u)
+                                                    {{$u->id}}
+                                            @endforeach
+                                        </td>
                                         <td class="table-cell col1">
                                             {{$projeto->nome}}
                                         </td>
@@ -91,11 +96,6 @@
                                                 $dataFormatada = $data->format('d-m-Y');
                                             ?>
                                             {{$dataFormatada}}
-                                        </td>
-                                        <td class="hidden">
-                                            @foreach($projeto->users as $u)
-                                                    {{$u->id}}
-                                            @endforeach
                                         </td>
                                     </tr>
                                 @endif
@@ -120,6 +120,8 @@
                             </tr>
 
                             <tr class="hidden headerRow">
+                                <th class="hidden">
+                                </th>
                                 <th class="table-cell col1">
                                     Nome
                                 </th>
@@ -135,14 +137,17 @@
                                 <th class="xl:table-cell col5">
                                     Data Limite
                                 </th>
-                                <th class="hidden">
-                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($projetos as $projeto)
                                 @if($projeto->status == 'Pendente')
                                     <tr role="row" class="h-10 m-auto hidden">
+                                        <td class="hidden">
+                                            @foreach($projeto->users as $u)
+                                                    {{$u->id}}
+                                            @endforeach
+                                        </td>
                                         <td class="table-cell col1">
                                             {{$projeto->nome}}
                                         </td>
@@ -174,11 +179,6 @@
                                                 $dataFormatada = $data->format('d-m-Y');
                                             ?>
                                             {{$dataFormatada}}
-                                        </td>
-                                        <td class="hidden">
-                                            @foreach($projeto->users as $u)
-                                                    {{$u->id}}
-                                            @endforeach
                                         </td>
                                     </tr>
                                 @endif

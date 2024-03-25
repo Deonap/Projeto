@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var flag1 = 0;
         activeProjects.forEach(function (row) {
             var cells = row.getElementsByTagName("td");
-            var responsaveis_id = cells[5].textContent.toLowerCase()
+            var responsaveis_id = cells[0].textContent.toLowerCase()
                 .split('\n').map(function (item) {
                     return item.trim();
                 }).filter(function (item) {
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         i = 0;
         pendingProjects.forEach(function (row) {
             var cells = row.getElementsByTagName("td");
-            var responsaveis_id = cells[5].textContent.toLowerCase()
+            var responsaveis_id = cells[0].textContent.toLowerCase()
                 .split('\n').map(function (item) {
                     return item.trim();
                 }).filter(function (item) {

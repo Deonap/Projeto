@@ -41,6 +41,8 @@
                                 </td>
                             </tr>
                             <tr class="hidden headerRow">
+                                <th class="hidden">
+                                </th>
                                 <th class="table-cell col1">
                                     Nome
                                 </th>
@@ -64,14 +66,15 @@
                                 </th>
                                 <th class="xl:table-cell col8">
                                 </th>
-                                <th class="hidden">
-                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($projetos as $projeto)
                                 @if($projeto->status == 'Ativo')
                                     <tr role="row" class="h-10 m-auto hidden">
+                                        <td class="hidden">
+                                            {{$projeto->Supervisor->id}}
+                                        </td>
                                         <td class="table-cell col1">
                                             {{$projeto->nome}}
                                         </td>
@@ -117,9 +120,6 @@
                                                 </form>
                                             </div>
                                         </td>
-                                        <td class="hidden">
-                                            {{$projeto->Supervisor->id}}
-                                        </td>
                                     </tr>
                                 @endif
                             @endforeach
@@ -142,6 +142,8 @@
                                 </td>
                             </tr>
                             <tr class="hidden headerRow">
+                                <th class="hidden">
+                                </th>
                                 <th class="table-cell col1_2">
                                     Nome
                                 </th>
@@ -155,11 +157,9 @@
                                     Observações
                                 </th>
                                 <th class="xl:table-cell col5_2">
-                                    Data terminado
+                                    Data limite
                                 </th>
                                 <th class="xl:table-cell col6_2">
-                                </th>
-                                <th class="hidden">
                                 </th>
                             </tr>
                         </thead>
@@ -167,6 +167,9 @@
                             @foreach($projetos as $projeto)
                                 @if($projeto->status == 'Terminado')
                                     <tr role="row" class="h-10 m-auto hidden">
+                                        <td class="hidden">
+                                            {{$projeto->Supervisor->id}}
+                                        </td>
                                         <td class="table-cell col1_2" >
                                             {{$projeto->nome}}
                                         </td>
@@ -180,7 +183,11 @@
                                             {{$projeto->obs}}
                                         </td>
                                         <td class="xl:table-cell col5_2" >
-                                            {{date_format($projeto->updated_at, 'd-m-Y')}}
+                                            <?php
+                                                $data = DateTime::createFromFormat('Y-m-d',$projeto->dataLimite);
+                                                $dataFormatada = $data->format('d-m-Y');
+                                            ?>
+                                            {{$dataFormatada}}
                                         </td>
                                         <td class="xl:table-cell col6_2" >
                                             <div class="flex items-center space-x-2">
@@ -201,9 +208,6 @@
                                                     </button>
                                                 </form>
                                             </div>
-                                        </td>
-                                        <td class="hidden">
-                                            {{$projeto->Supervisor->id}}
                                         </td>
                                     </tr>
                                 @endif

@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var flag1 = 0;
         activeTable.forEach(function (row) {
             var cells = row.getElementsByTagName("td");
-            var supervisorId = cells[6].textContent.toLowerCase().trim();
+            var supervisorId = cells[8].textContent.toLowerCase().trim();
 
             if (supervisorId == filterValue) {
                 flag = 1;

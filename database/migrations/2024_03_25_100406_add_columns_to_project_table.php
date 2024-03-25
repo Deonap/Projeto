@@ -11,7 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('projetos', function (Blueprint $table) {
-            $table->integer('orcamento')->after('supervisor_id');
+            $table->double('orcamento')->after('supervisor_id');
             $table->string('tempoPrevisto')->after('orcamento');
             $table->string('tempoInvestido')->after('tempoPrevisto');
         });

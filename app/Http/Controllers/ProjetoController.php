@@ -15,7 +15,7 @@ class ProjetoController extends Controller
      */
     public function index()
     {
-        return view("projetos.index")->with(["projetos" => Projeto::all(),"users" => User::all()]);
+        return view("projetos.index")->with(["projetos" => Projeto::all(), "users" => User::all()]);
     }
 
     /**
@@ -108,7 +108,7 @@ class ProjetoController extends Controller
         $projeto->tipo = $request->input('tipo');
         $projeto->dataLimite = $request->input('dataLimite');
         $projeto->supervisor_id = $request->input('supervisor_id');
-        $projeto->orcamento = $request->input('orcamento');
+        $projeto->orcamento = str_replace(',', $request->input('orcamento'), '.');
         $projeto->tempoPrevisto = $request->input('tempoPrevisto');
         $projeto->obs = $request->input('obs');
 

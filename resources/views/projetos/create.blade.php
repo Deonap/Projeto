@@ -108,12 +108,12 @@
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Orçamento (€)</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" autocomplete="off" type="text" pattern="[1-9]{1}[0-9]{1,8}\,|\.[0-9]{2}" name="orcamento" value={{old('orcamento')}}>
+                                <input class="w-full sm:w-11/12 mt-2" autocomplete="off" type="text" pattern="[1-9]{1}[0-9]{1,8}(\,|\.)[0-9]{2}" name="orcamento" value={{old('orcamento')}}>
                             </div>
                             <div class="w-full sm:w-1/2 mt-4">
                                 <label class="font-bold">Tempo previsto</label>
                                 <br>
-                                <input class="w-full sm:w-11/12 mt-2" autocomplete="off" pattern="[0-9]{2}:[0-5][0-9]" type="text" placeholder="hh:mm" name="tempoPrevisto" value={{old('tempoPrevisto')}}>
+                                <input class="w-full sm:w-11/12 mt-2" autocomplete="off" pattern="[0-9]{0,4}:[0-5][0-9]" type="text" placeholder="hh:mm" name="tempoPrevisto" value={{old('tempoPrevisto')}}>
                             </div>
                             <!-- ocupa completamente meio ecrã + 11/12 da segunda metade. Isso é equivalente a 1/2 + (11/12)*1/2 = 23/24 = 95.8(3)% !-->
                             <div class="w-full sm:w-[95.833333%] mt-4">

@@ -40,24 +40,29 @@
                                     Sem dados
                                 </td>
                             </tr>
-
                             <tr class="hidden headerRow">
                                 <th class="table-cell col1">
                                     Nome
                                 </th>
-                                <th class="sm:table-cell col2">
+                                <th class="table-cell col2">
                                     Cliente
                                 </th>
-                                <th class="md:table-cell col3">
+                                <th class="sm:table-cell col3">
                                     Tipo
                                 </th>
-                                <th class="lg:table-cell col4">
+                                <th class="md:table-cell col4">
                                     Observações
                                 </th>
-                                <th class="xl:table-cell col5">
-                                    Data Limite
+                                <th class="lg:table-cell col5">
+                                    Tempo investido
                                 </th>
-                                <th class="xl:table-cell col6">
+                                <th class="lg:table-cell col6">
+                                    Tempo previsto
+                                </th>
+                                <th class="xl:table-cell col7">
+                                    Data limite
+                                </th>
+                                <th class="xl:table-cell col8">
                                 </th>
                                 <th class="hidden">
                                 </th>
@@ -70,14 +75,20 @@
                                         <td class="table-cell col1">
                                             {{$projeto->nome}}
                                         </td>
-                                        <td class="sm:table-cell col2">
+                                        <td class="table-cell col2">
                                             {{$projeto->cliente->nome}}
                                         </td>
-                                        <td class="md:table-cell col3">
+                                        <td class="sm:table-cell col3">
                                             {{$projeto->tipo}}
                                         </td>
-                                        <td class="lg:table-cell col4">
+                                        <td class="md:table-cell col4">
                                             {{$projeto->obs}}
+                                        </td>
+                                        <td class="lg:table-cell col5">
+                                            {{$projeto->tempoInvestido}}
+                                        </td>
+                                        <td class="lg:table-cell col6">
+                                            {{$projeto->tempoPrevisto}}
                                         </td>
                                         <?php
                                             $timestampLimite = strtotime($projeto->dataLimite);
@@ -92,14 +103,14 @@
                                                 $txtcolor = 'text-yellow-600';
                                             }
                                         ?>
-                                        <td class="xl:table-cell {{$txtcolor}} col5">
+                                        <td class="xl:table-cell {{$txtcolor}} col7">
                                             <?php
                                                 $data = DateTime::createFromFormat('Y-m-d',$projeto->dataLimite);
                                                 $dataFormatada = $data->format('d-m-Y');
                                             ?>
                                             {{$dataFormatada}}
                                         </td>
-                                        <td class="xl:table-cell col6">
+                                        <td class="xl:table-cell col8">
                                             <div class="flex items-center space-x-2">
                                                 <!-- botão editar -->
                                                 <a href="{{route('projetos.edit', $projeto->id)}}" title="Editar">

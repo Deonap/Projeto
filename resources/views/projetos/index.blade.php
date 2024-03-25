@@ -147,16 +147,16 @@
                                 <th class="table-cell col1_2">
                                     Nome
                                 </th>
-                                <th class="sm:table-cell col2_2">
+                                <th class="table-cell col2_2">
                                     Cliente
                                 </th>
-                                <th class="md:table-cell col3_2">
+                                <th class="sm:table-cell col3_2">
                                     Tipo
                                 </th>
-                                <th class="lg:table-cell col4_2">
+                                <th class="md:table-cell col4_2">
                                     Observações
                                 </th>
-                                <th class="xl:table-cell col5_2">
+                                <th class="lg:table-cell col5_2">
                                     Data limite
                                 </th>
                                 <th class="xl:table-cell col6_2">
@@ -173,16 +173,16 @@
                                         <td class="table-cell col1_2" >
                                             {{$projeto->nome}}
                                         </td>
-                                        <td class="sm:table-cell col2_2" >
+                                        <td class="table-cell col2_2" >
                                             {{$projeto->cliente->nome}}
                                         </td>
-                                        <td class="md:table-cell col3_2" >
+                                        <td class="sm:table-cell col3_2" >
                                             {{$projeto->tipo}}
                                         </td>
-                                        <td class="lg:table-cell col4_2" >
+                                        <td class="md:table-cell col4_2" >
                                             {{$projeto->obs}}
                                         </td>
-                                        <td class="xl:table-cell col5_2" >
+                                        <td class="lg:table-cell col5_2" >
                                             <?php
                                                 $data = DateTime::createFromFormat('Y-m-d',$projeto->dataLimite);
                                                 $dataFormatada = $data->format('d-m-Y');

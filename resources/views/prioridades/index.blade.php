@@ -179,41 +179,41 @@
                         <tbody>
                             @foreach($projetos as $projeto)
                                 @if($projeto->status == 'Pendente')
-                                <tr role="row" class="h-10 m-auto hidden">
-                                    <td class="hidden">
-                                        @foreach($projeto->users as $u)
-                                                {{$u->id}}
-                                        @endforeach
-                                    </td>                                        
-                                    <td class="table-cell col1">
-                                        1
-                                    </td>
-                                    <td class="table-cell col2">
-                                        {{$projeto->nome}}
-                                    </td>
-                                    <td class="table-cell col3">
-                                        {{$projeto->cliente->nome}}
-                                    </td>
-                                    <td class="sm:table-cell col4">
-                                        {{$projeto->tipo}}
-                                    </td>
-                                    <td class="md:table-cell col5">
-                                        {{$projeto->obs}}
-                                    </td>
-                                    <td class="lg:table-cell col6">
-                                        {{$projeto->tempoInvestido}}
-                                    </td>
-                                    <td class="lg:table-cell col7">
-                                        {{$projeto->tempoPrevisto}}
-                                    </td>
-                                    <td class="xl:table-cell col8">
-                                        <?php
-                                            $data = DateTime::createFromFormat('Y-m-d',$projeto->dataLimite);
-                                            $dataFormatada = $data->format('d-m-Y');
-                                        ?>
-                                        {{$dataFormatada}}
-                                    </td>
-                                </tr>
+                                    <tr role="row" class="h-10 m-auto hidden">
+                                        <td class="hidden">
+                                            @foreach($projeto->users as $u)
+                                                    {{$u->id}}
+                                            @endforeach
+                                        </td>                                        
+                                        <td class="table-cell col1">
+                                            1
+                                        </td>
+                                        <td class="table-cell col2">
+                                            {{$projeto->nome}}
+                                        </td>
+                                        <td class="table-cell col3">
+                                            {{$projeto->cliente->nome}}
+                                        </td>
+                                        <td class="sm:table-cell col4">
+                                            {{$projeto->tipo}}
+                                        </td>
+                                        <td class="md:table-cell col5">
+                                            {{$projeto->obs}}
+                                        </td>
+                                        <td class="lg:table-cell col6">
+                                            {{$projeto->tempoInvestido}}
+                                        </td>
+                                        <td class="lg:table-cell col7">
+                                            {{$projeto->tempoPrevisto}}
+                                        </td>
+                                        <td class="xl:table-cell col8">
+                                            <?php
+                                                $data = DateTime::createFromFormat('Y-m-d',$projeto->dataLimite);
+                                                $dataFormatada = $data->format('d-m-Y');
+                                            ?>
+                                            {{$dataFormatada}}
+                                        </td>
+                                    </tr>
                                 @endif
                             @endforeach
                         </tbody>

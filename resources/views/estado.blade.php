@@ -21,10 +21,16 @@
     <div class="max-w-[650px]">
         <div class="grid grid-cols-2 grid-rows-2 gap-x-0 gap-y-[15px]" style="grid-template-areas: 'header header' '. button'">
             <div class="flex text-[rgb(10,57,86)]" style='grid-area: header'>
-                <h1 class="font-black">Parametrizações ></h1> Estado
+                <h1 class="font-black">
+                    Parametrizações >
+                </h1> 
+                Estado
             </div>
-            <div style='grid-area:button'><a href="#" class="bg-[rgb(0,40,91)] rounded text-white p-2 pl-10 pr-10">Adicionar</a></div>
-            
+            <div style='grid-area:button'>
+                <a href="#" class="bg-[rgb(0,40,91)] rounded text-white p-2 pl-10 pr-10">
+                    Adicionar
+                </a>
+            </div>
         </div>
         <div class="mt-5 w-fit">
             <table class="table table-fixed w-full">
@@ -65,8 +71,7 @@
                                     <button type='submit' onclick="return confirm('Tem a certeza?')">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" class="w-6 h-6">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                          </svg>
-                                          
+                                          </svg>        
                                     </button>
                                 </form>
                             </div>
@@ -95,8 +100,7 @@
                                     <button type='submit' onclick="return confirm('Tem a certeza?')">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" class="w-6 h-6">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                          </svg>
-                                          
+                                          </svg>        
                                     </button>
                                 </form>
                             </div>

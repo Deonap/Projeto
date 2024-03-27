@@ -77,5 +77,11 @@ Route::get('/temp', function () {
 Route::get('tipoCliente', function () {
     return view('tipoCliente');
 });
+Route::get('niveisAcesso', function () {
+    return view('niveisAcesso');
+});
 
+Route::get('estado', function () {
+    return view('estado');
+});
 require __DIR__ . '/auth.php';

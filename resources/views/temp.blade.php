@@ -55,7 +55,6 @@
 <body>
     <div class="flex items-center">
         <div class="defaultDashboard">
-            <div>
                 <div>
                     INSERIR IMAGEM
                 </div>
@@ -78,7 +77,6 @@
                         - Histórico
                     </x-nav-link>
                 </div>
-            </div>
             <div class="categoryContainer">
                 <div class="categoryHeaderContainer">
                     <div class="categoryHeaderIcon">
@@ -114,10 +112,10 @@
                     <x-nav-link href="tipoCliente" class="categoryContent">
                         - Tipo de Cliente
                     </x-nav-link>
-                    <x-nav-link href="" class="categoryContent">
+                    <x-nav-link href="niveisAcesso" class="categoryContent">
                         - Níveis de Acesso
                     </x-nav-link>
-                    <x-nav-link href="" class="categoryContent">
+                    <x-nav-link href="estado" class="categoryContent">
                         - Estado
                     </x-nav-link>
                 </div>

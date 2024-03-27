@@ -69,9 +69,13 @@ Route::controller(PrioridadeController::class)->prefix('prioridades')->name('pri
     Route::delete('/destroy/{prioridade}', 'destroy')->name('.destroy');
 });
 
+
 Route::get('/temp', function () {
     return view('temp');
 });
 
+Route::get('tipoCliente', function () {
+    return view('tipoCliente');
+});
 
 require __DIR__ . '/auth.php';

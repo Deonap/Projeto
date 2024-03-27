@@ -32,6 +32,8 @@
             cursor:default;
         }
         .categoryContentContainer{
+            display: flex;
+            flex-direction: column;
             font-weight: 300;
             margin-top: 0.25rem;
             margin-left: 0.75rem;
@@ -42,6 +44,11 @@
             color: rgb(10 57 86);
             border-radius: 0.25rem;
             cursor:pointer;
+        }
+        .categoryContent{
+            font-weight: 300;
+            color:white;
+            font-size: 15px;
         }
     </style>
 </head>
@@ -64,12 +71,12 @@
                     </div>
                 </div>
                 <div class="categoryContentContainer">
-                    <div class="categoryContent hover:cursor-pointer">
+                    <x-nav-link href="" class="categoryContent">
                         - Definir
-                    </div>
-                    <div class="categoryContent">
+                    </x-nav-link>
+                    <x-nav-link href="" class="categoryContent">
                         - Histórico
-                    </div>
+                    </x-nav-link>
                 </div>
             </div>
             <div class="categoryContainer">
@@ -84,12 +91,12 @@
                     </div>
                 </div>
                 <div class="categoryContentContainer">
-                    <div class="categoryContent">
+                    <x-nav-link href="" class="categoryContent">
                         - Adicionar
-                    </div>
-                    <div class="categoryContent">
+                    </x-nav-link>
+                    <x-nav-link href="" class="categoryContent">
                         - Listagem
-                    </div>
+                    </x-nav-link>
                 </div>
             </div>
             <div class="categoryContainer">
@@ -104,15 +111,15 @@
                     </div>
                 </div>
                 <div class="categoryContentContainer">
-                    <div class="categoryContent">
+                    <x-nav-link href="tipoCliente" class="categoryContent">
                         - Tipo de Cliente
-                    </div>
-                    <div class="categoryContent">
+                    </x-nav-link>
+                    <x-nav-link href="" class="categoryContent">
                         - Níveis de Acesso
-                    </div>
-                    <div class="categoryContent">
+                    </x-nav-link>
+                    <x-nav-link href="" class="categoryContent">
                         - Estado
-                    </div>
+                    </x-nav-link>
                 </div>
             </div>
         </div>
